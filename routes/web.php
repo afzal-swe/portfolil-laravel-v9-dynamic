@@ -35,7 +35,8 @@ Route::middleware('auth')->group(function () {
 Route::controller(AdminController::class)->group(function () {
     Route::get('/admin/logout', 'destroy')->name('admin.logout');
     Route::get('/admin/profile', 'profile')->name('admin.profile')->middleware(['auth', 'verified']);
-    Route::get('/admin/edit/{id}', 'edit')->name('profile.edit')->middleware(['auth', 'verified']);
+    Route::get('/profile/edit/{id}', 'edit')->name('profile.edit')->middleware(['auth', 'verified']);
+    Route::post('/profile/update/{id}', 'store')->name('store.profile')->middleware(['auth', 'verified']);
 });
 
 require __DIR__ . '/auth.php';

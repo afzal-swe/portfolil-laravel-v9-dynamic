@@ -36,4 +36,25 @@ class AdminController extends Controller
         $editData = User::find($id);
         return view('admin.profile.edit', compact('editData'));
     }
+
+    public function store(Request $request)
+    {
+        $id = Auth::user()->id;
+        $data = User::find($id);
+
+        $data->name = $request->name;
+        $data->username = $request->username;
+        $data->email = $request->email;
+
+        if ($request->file('image')) {
+            $file = $request->file('image');
+
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path('image/admin_image'), $filename);
+            $data['image'] = $filename;
+        }
+        $data->save();
+
+        return redirect()->route('admin.profile');
+    }
 }

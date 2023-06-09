@@ -1,5 +1,7 @@
 @extends('admin.admin_master')
-@section('admin') 
+@section('admin')
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 <div class="main-content">
     <div class="page-content">
@@ -10,7 +12,7 @@
                         <h4 class="text-muted font-size-18"><b>Edit Profile Page</b></h4>
     
                         <div class="p-3">
-                            <form method="POST" action="{{ route('register') }}">
+                            <form method="POST" action="{{ route('store.profile',$editData) }}" enctype="multipart/form-data">
                                 @csrf
                                 
                                 <!-- Name -->
@@ -37,13 +39,14 @@
                                 <!-- Profile Image -->
                                 <div class="form-group mb-3 row">
                                     <div class="col-12">
-                                        <input id="profile" name="profile" class="form-control" type="file">
+                                        <input id="image" name="image" class="form-control" type="file">
                                     </div>
                                 </div>
 
                                 <div class="form-group mb-3 row">
                                     <div class="col-12">
-                                        <img class="rounded avatar-lg" src="{{ asset('backends/assets/images/small/img-5.jpg') }}" alt="Card image cap">
+                                        <img id="showImage" class="rounded avatar-lg" src="{{ (!empty($editData->image)) ? 
+                                            url('image/admin_image/'.$editData->image):url('image/No_Image_Available.jpg') }}" alt="Card image cap">
                                     </div>
                                 </div>
                                 
@@ -65,4 +68,16 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#image').change(function(e){
+            var reader = new FileReader();
+            reader.onload=function(e){
+                $('#showImage').attr('src',e.target.result);
+            }
+            reader.readAsDataURL(e.target.files['0']);
+        });
+    });
+</script>
 @endsection
