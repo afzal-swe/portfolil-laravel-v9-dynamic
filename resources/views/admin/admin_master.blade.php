@@ -27,6 +27,10 @@
         <!-- App Css-->
         <link href="{{ asset('backends/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
 
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
+         <!-- Sweet Alert-->
+         {{-- <link href="{{ asset('backends/assets/libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" /> --}}
+
     </head>
 
     <body data-topbar="dark">
@@ -134,6 +138,36 @@
 
         <!-- App js -->
         <script src="{{ asset('backends/assets/js/app.js') }}"></script>
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <!-- Sweet Alerts js -->
+        {{-- <script src="{{ asset('backends/assets/libs/sweetalert2/sweetalert2.min.js') }}"></script> --}}
+
+        <!-- Sweet alert init js-->
+        <script src="{{ asset('backends/assets/js/pages/sweet-alerts.init.js') }}"></script>
+
+        <script>
+            @if(Session::has('messege'))
+            var type = "{{ Session::get('alert-type','info') }}"
+            switch(type){
+               case 'info':
+               toastr.info(" {{ Session::get('message') }} ");
+               break;
+           
+               case 'success':
+               toastr.success(" {{ Session::get('message') }} ");
+               break;
+           
+               case 'warning':
+               toastr.warning(" {{ Session::get('message') }} ");
+               break;
+           
+               case 'error':
+               toastr.error(" {{ Session::get('message') }} ");
+               break; 
+            }
+            @endif 
+           </script>
     </body>
 
 </html>
