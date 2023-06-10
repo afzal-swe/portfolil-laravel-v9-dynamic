@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Home\HomeSliderController;
+use App\Http\Controllers\Home\AboutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,16 +45,16 @@ Route::controller(AdminController::class)->group(function () {
 });
 
 
-//__ Home All Route __//
-
+//__ Home Slider Route __//
 Route::controller(HomeSliderController::class)->group(function () {
     Route::get('/home/slide', 'HomeSlider')->name('home.slide');
     Route::post('/update/slider', 'UpdateProfile')->name('update.slide');
-    // Route::get('/profile/edit/{id}', 'edit')->name('profile.edit')->middleware(['auth', 'verified']);
-    // Route::post('/profile/update/{id}', 'store')->name('store.profile')->middleware(['auth', 'verified']);
+});
 
-    // Route::get('/change/password', 'ChangePassword')->name('change.password')->middleware(['auth', 'verified']);
-    // Route::post('/update/password', 'UpdatePassword')->name('update.password')->middleware(['auth', 'verified']);
+//__ About Page Route __//
+Route::controller(AboutController::class)->group(function () {
+    Route::get('/about/page', 'AboutPage')->name('about.page');
+    Route::post('/update/about/{id}', 'UpdateAbout')->name('update.about');
 });
 
 require __DIR__ . '/auth.php';
