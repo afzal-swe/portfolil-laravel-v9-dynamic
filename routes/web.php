@@ -53,8 +53,13 @@ Route::controller(HomeSliderController::class)->group(function () {
 
 //__ About Page Route __//
 Route::controller(AboutController::class)->group(function () {
+    // Backend Route ///
     Route::get('/about/page', 'AboutPage')->name('about.page');
     Route::post('/update/about/{id}', 'UpdateAbout')->name('update.about');
+    Route::get('/about/multi/image', 'AboutMultiImage')->name('about.multi.image');
+    Route::post('/store/multi/image', 'StoreMultiImage')->name('store.multi.image');
+
+    // Frontend Route ///
     Route::get('/about', 'HomeAbout')->name('home.about');
 });
 
