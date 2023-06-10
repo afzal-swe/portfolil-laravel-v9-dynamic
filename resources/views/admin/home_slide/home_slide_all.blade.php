@@ -16,33 +16,38 @@
                                 @csrf
                                 
                                 <!-- Title -->
-                                <div class="form-group mb-3 row">
-                                    <div class="col-12">
+                                <div class="mb-4 row">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Title<span class="text-danger">*</span></label>
+                                    <div class="col-sm-10">
                                         <input id="title" name="title" class="form-control" type="text" placeholder="Title" value="{{ $homeSlide->title }}">
                                     </div>
                                 </div>
 
                                 <!-- Short Title -->
-                                <div class="form-group mb-3 row">
-                                    <div class="col-12">
+                                <div class="mb-4 row">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Short Title<span class="text-danger">*</span></label>
+                                    <div class="col-sm-10">
                                         <input  id="short_title" name="short_title" class="form-control" type="text" placeholder="Short Title" value="{{ $homeSlide->short_title }}">
                                     </div>
                                 </div>
 
-                                <div class="form-group mb-3 row">
-                                    <div class="col-12">
+                                <div class="mb-4 row">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Title<span class="text-danger">*</span></label>
+                                    <div class="col-sm-10">
                                         <input id="video_url" name="video_url" class="form-control" type="text" value="{{ $homeSlide->video_url }}">
                                     </div>
                                 </div>
 
                                 <!-- Home Slide Image -->
-                                <div class="form-group mb-3 row">
-                                    <div class="col-12">
+                                <div class="mb-4 row">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Slide Image<span class="text-danger">*</span></label>
+                                    <div class="col-sm-10">
                                         <input id="home_slide" name="home_slide" class="form-control" type="file">
                                     </div>
                                 </div>
-                                <div class="form-group mb-3 row">
-                                    <div class="col-12">
+                                <div class="mb-4 row">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label"> </label>
+                                    <div class="col-sm-10">
                                         <img id="showImage" class="rounded avatar-lg" src="{{ (!empty($homeSlide->home_slide)) ? 
                                             url('image/home_image/'.$homeSlide->home_slide):url('image/No_Image_Available.jpg') }}" alt="Card image cap">
                                     </div>

@@ -28,9 +28,9 @@ class HomeSliderController extends Controller
             // $filename = date('YmdHi') . $file->getClientOriginalName();
             $name_gen = hexdec(uniqid()) . '.' . $file->getClientOriginalExtension();
 
-            Image::make('$file')->resize(749, 467)->save('image/home_image' . $name_gen);
+            Image::make($file)->resize(749, 467)->save('image/home_image/' . $name_gen);
 
-            $save_url = 'image/home_image' . $name_gen;
+            $save_url = 'image/home_image/' . $name_gen;
 
             HomeSlide::findOrFail($slide_id)->update([
                 'title' => $request->title,
