@@ -99,6 +99,12 @@ class AboutController extends Controller
         return redirect()->back()->with($notification);
     }
 
+    public function AllMultiImage()
+    {
+        $allMultiImage = MultiImage::all();
+        return view('admin.about.all_multi_image', compact('allMultiImage'));
+    }
+
     // Frontend Code..................................................................................................................
     public function HomeAbout()
     {
