@@ -12,8 +12,8 @@
                         </div>
                         <center>
                             
-                            <img class="rounded-circle avatar-xl" src="{{ (!empty($view->portfolio_image)) ? 
-                                url('image/portfolio/'.$view->portfolio_image):url('image/No_Image_Available.jpg') }}" alt="Card image cap">
+                            <img class="rounded-circle avatar-xl" src="{{  (!empty($view->portfolio_image)) ? 
+                                url('image/portfolio/'.$view->portfolio_image):url('image/No_Image_Available.jpg') }}">
                         </center>
                         <div class="card-body">
                             <h4 class="card-title">Portfolio Name : {{ $view->portfolio_name }}</h4>

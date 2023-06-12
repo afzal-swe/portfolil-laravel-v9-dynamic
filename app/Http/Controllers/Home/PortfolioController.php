@@ -66,6 +66,67 @@ class PortfolioController extends Controller
     }
     // __End Method__ //
 
+    // __Portfolio Edit Function__ //
+    public function edit($id)
+    {
+        $edit = Portfolio::findOrFail($id);
+        return view('admin.portfolio_section.edit', compact('edit'));
+    }
+    // __End Method__ //
+
+    // __Portfolio update Function__ //
+    public function update(Request $request)
+    {
+        $portfolio_id = $request->id;
+
+
+        if ($request->file('portfolio_image')) {
+            $file = $request->file('portfolio_image');
+
+            // $filename = date('YmdHi') . $file->getClientOriginalName();
+            $name_gen = hexdec(uniqid()) . '.' . $file->getClientOriginalExtension();
+
+            Image::make($file)->resize(1020, 519)->save('image/portfolio/' . $name_gen);
+
+            $save_url = 'image/portfolio/' . $name_gen;
+
+            Portfolio::findOrFail($portfolio_id)->update([
+                'portfolio_name' => $request->portfolio_name,
+                'portfolio_title' => $request->portfolio_title,
+                'portfolio_description' => $request->portfolio_description,
+                'portfolio_image' =>  $save_url,
+
+            ]);
+            $notification = array(
+                'messege' => 'Portfolio Update Successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->route('portfolio.index')->with($notification);
+        } else {
+            Portfolio::findOrFail($portfolio_id)->update([
+                'portfolio_name' => $request->portfolio_name,
+                'portfolio_title' => $request->portfolio_title,
+                'portfolio_description' => $request->portfolio_description,
+
+            ]);
+            $notification = array(
+                'messege' => 'Portfolio Update Successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->route('portfolio.index')->with($notification);
+        }
+    }
+    // __End Method__ //
+
+
+    // __Portfolio View Function__ //
+    public function view($id)
+    {
+        $view = Portfolio::find($id);
+        return view('admin.portfolio_section.view', compact('view'));
+    }
+    // __End Method__ //
+
     // __Portfolio Delete Function__ //
     public function destroy($id)
     {
@@ -83,11 +144,5 @@ class PortfolioController extends Controller
     }
     // __End Method__ //
 
-    // __Portfolio View Function__ //
-    public function view($id)
-    {
-        $view = Portfolio::find($id);
-        return view('admin.portfolio_section.view', compact('view'));
-    }
-    // __End Method__ //
+
 }
