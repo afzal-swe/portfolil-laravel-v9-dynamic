@@ -77,7 +77,7 @@
                         <span>Blog Page Setup</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="#">Create A New Blog</a></li>
+                        <li><a href="{{ route('blog.create') }}">Create A New Blog</a></li>
                         <li><a href="{{ route('blog.index') }}">Manage Blog</a></li>
                     </ul>
                 </li>

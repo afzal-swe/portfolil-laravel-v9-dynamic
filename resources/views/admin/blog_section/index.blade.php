@@ -42,8 +42,8 @@
                                     @foreach ($blog as $key=>$row)
                                     <tr>
                                         <td>{{++$key}}</td>
-                                        <td><img src="{{ asset($row->blog_image) }}" style="width: 50px, height:50px"></td>
-                                        <td>{{ $row->blog_category_id }}</td>
+                                        <td><img src="{{ asset($row->blog_image) }}" style="width: 40px; height:40px"></td>
+                                        <td>{{ $row['blogcategory']['blog_category'] }}</td>
                                         <td>{{ $row->blog_title }}</td>
                                         <td>{{ $row->blog_slug }}</td>
                                         <td>{{ $row->blog_tags }}</td>
