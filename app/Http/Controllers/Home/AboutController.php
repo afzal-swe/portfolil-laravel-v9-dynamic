@@ -126,10 +126,6 @@ class AboutController extends Controller
             $save_url = 'image/multi/' . $name_gen;
 
             MultiImage::findOrFail($multi_image_id)->update([
-                // 'title' => $request->title,
-                // 'short_title' => $request->short_title,
-                // 'short_Description' => $request->short_Description,
-                // 'logn_Description' => $request->logn_Description,
                 'multi_image' =>  $save_url,
 
             ]);

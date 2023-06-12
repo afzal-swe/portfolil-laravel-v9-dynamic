@@ -71,5 +71,6 @@ Route::controller(AboutController::class)->group(function () {
 // __Portfolio Route Section__ //
 Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio.index')->middleware(['auth', 'verified']);
 Route::get('/create/portfolio', [PortfolioController::class, 'create'])->name('portfolio.create')->middleware(['auth', 'verified']);
+Route::post('/store/portfolio', [PortfolioController::class, 'store'])->name('portfolio.store')->middleware(['auth', 'verified']);
 
 require __DIR__ . '/auth.php';

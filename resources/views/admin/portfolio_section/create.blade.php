@@ -12,14 +12,18 @@
                         <h4 class="text-muted font-size-18"><b>Create A New Portfolio</b></h4>
     
                         <div class="p-3">
-                            <form method="POST" action="#" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('portfolio.store') }}" enctype="multipart/form-data">
                                 @csrf
                                 
                                 <!-- Portfolio Name -->
                                 <div class="mb-4 row">
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Portfolio Name<span class="text-danger">*</span></label>
                                     <div class="col-sm-10">
-                                        <input id="portfolio_name" name="portfolio_name" class="form-control" type="text" placeholder="Portfolio Name">
+                                        <input id="portfolio_name" name="portfolio_name" class="form-control" type="text" placeholder="Portfolio Name" value="{{old('portfolio_name')}}">
+                                        
+                                        @error('portfolio')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -27,7 +31,11 @@
                                 <div class="mb-4 row">
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Portfolio Title<span class="text-danger">*</span></label>
                                     <div class="col-sm-10">
-                                        <input  id="portfolio_title" name="portfolio_title" class="form-control" type="text" placeholder="Portfolio Title">
+                                        <input  id="portfolio_title" name="portfolio_title" class="form-control" type="text" placeholder="Portfolio Title" value="{{old('portfolio_title')}}">
+                                        
+                                        @error('portfolio_title')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -35,7 +43,7 @@
                                 <div class="mb-4 row">
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Portfolio Description <span class="text-danger">*</span></label>
                                     <div class="col-sm-10">
-                                        <textarea id="elm1" name="portfolio_description"></textarea>
+                                        <textarea id="elm1" name="portfolio_description" value="{{old('portfolio_description')}}"></textarea>
                                     </div>
                                 </div>
 
@@ -46,13 +54,12 @@
                                         <input id="portfolio_image" name="portfolio_image" class="form-control" type="file">
                                     </div>
                                 </div>
-                                {{-- <div class="mb-4 row">
+                                <div class="mb-4 row">
                                     <label for="example-text-input" class="col-sm-2 col-form-label"> </label>
                                     <div class="col-sm-10">
-                                        <img id="showImage" class="rounded avatar-lg" src="{{ (!empty($homeSlide->home_slide)) ? 
-                                            url('image/home_image/'.$homeSlide->home_slide):url('image/No_Image_Available.jpg') }}" alt="Card image cap">
+                                        <img id="showImage" class="rounded avatar-lg" src="{{ url('image/No_Image_Available.jpg') }}" alt="Card image cap">
                                     </div>
-                                </div> --}}
+                                </div>
 
                                 
     
