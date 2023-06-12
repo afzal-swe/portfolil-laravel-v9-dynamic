@@ -76,5 +76,7 @@ Route::get('/edit/portfolio/{id}', [PortfolioController::class, 'edit'])->name('
 Route::post('/update/portfolio/{id}', [PortfolioController::class, 'update'])->name('portfolio.update')->middleware(['auth', 'verified']);
 Route::get('/view/portfolio/{id}', [PortfolioController::class, 'view'])->name('portfolio.view')->middleware(['auth', 'verified']);
 Route::get('/delete/portfolio/{id}', [PortfolioController::class, 'destroy'])->name('portfolio.destroy')->middleware(['auth', 'verified']);
+// __Portfolio Frontend Route section__ //
+Route::get('/portfolio/details/{id}', [PortfolioController::class, 'details'])->name('portfolio.details');
 
 require __DIR__ . '/auth.php';

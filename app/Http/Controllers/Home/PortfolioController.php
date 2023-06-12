@@ -144,5 +144,14 @@ class PortfolioController extends Controller
     }
     // __End Method__ //
 
+    // __Frontend...................................................................................................
+    // __Portfolio Details Function__ //
+    public function details($id)
+    {
+        $details = Portfolio::findOrFail($id);
+        return view('frontend.portfolio_section.details', compact('details'));
+    }
+    // __End Method__ //
+
 
 }
