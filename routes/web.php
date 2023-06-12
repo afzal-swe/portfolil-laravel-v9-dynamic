@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\Home\AboutController;
 use App\Http\Controllers\Home\PortfolioController;
+use App\Http\Controllers\Home\BlogCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,5 +79,12 @@ Route::get('/view/portfolio/{id}', [PortfolioController::class, 'view'])->name('
 Route::get('/delete/portfolio/{id}', [PortfolioController::class, 'destroy'])->name('portfolio.destroy')->middleware(['auth', 'verified']);
 // __Portfolio Frontend Route section__ //
 Route::get('/portfolio/details/{id}', [PortfolioController::class, 'details'])->name('portfolio.details');
+
+
+
+// __Blog Category Route Section__ //
+Route::get('/blog', [BlogCategoryController::class, 'index'])->name('blog_category.index')->middleware(['auth', 'verified']);
+
+
 
 require __DIR__ . '/auth.php';
