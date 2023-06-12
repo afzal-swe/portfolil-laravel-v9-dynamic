@@ -82,4 +82,12 @@ class PortfolioController extends Controller
         return redirect()->back()->with($notification);
     }
     // __End Method__ //
+
+    // __Portfolio View Function__ //
+    public function view($id)
+    {
+        $view = Portfolio::find($id);
+        return view('admin.portfolio_section.view', compact('view'));
+    }
+    // __End Method__ //
 }
