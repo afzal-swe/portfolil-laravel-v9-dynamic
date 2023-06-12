@@ -23,7 +23,7 @@ class BlogController extends Controller
     // __End Method
 
 
-    // __Blog  Manage Function__ //
+    // __Blog  Create Function__ //
     public function create()
     {
         $blog_category = BlogCategory::orderBy('blog_category', 'ASC')->get();
@@ -32,7 +32,7 @@ class BlogController extends Controller
     // __End Method
 
 
-    // __Blog  Manage Function__ //
+    // __Blog  Store Function__ //
     public function store(Request $request)
     {
         $request->validate([
@@ -66,6 +66,14 @@ class BlogController extends Controller
             'alert-type' => 'success'
         );
         return redirect()->route('blog.index')->with($notification);
+    }
+    // __End Method
+
+    // __Blog  Manage Function__ //
+    public function view($id)
+    {
+        $blog = Blog::findOrFail($id);
+        return view('admin.blog_section.view', compact('blog'));
     }
     // __End Method
 
