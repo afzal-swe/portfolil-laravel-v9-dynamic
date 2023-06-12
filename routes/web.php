@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\Home\AboutController;
+use App\Http\Controllers\Home\PortfolioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,5 +67,9 @@ Route::controller(AboutController::class)->group(function () {
     // Frontend Route ///
     Route::get('/about', 'HomeAbout')->name('home.about');
 });
+
+// __Portfolio Route Section__ //
+Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio.index')->middleware(['auth', 'verified']);
+Route::get('/create/portfolio', [PortfolioController::class, 'create'])->name('portfolio.create')->middleware(['auth', 'verified']);
 
 require __DIR__ . '/auth.php';

@@ -41,6 +41,19 @@
                     </ul>
                 </li>
 
+                {{-- Portfolio Page Start --}}
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-mail-send-line"></i>
+                        <span>Portfolio Page Setup</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('portfolio.create') }}">Create New Portfolio</a></li>
+                        <li><a href="{{ route('portfolio.index')}}">Manage Portfolio</a></li>
+                        
+                    </ul>
+                </li>
+
                 {{-- About Page Start --}}
 
                 <li class="menu-title">Pages</li>
