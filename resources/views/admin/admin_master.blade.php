@@ -8,6 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesdesign" name="author" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{ asset('backends/assets/images/favicon.ico') }}">
 
@@ -26,6 +28,7 @@
         <link href="{{ asset('backends/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- App Css-->
         <link href="{{ asset('backends/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
+
 
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
          <!-- Sweet Alert-->
@@ -126,10 +129,6 @@
         <script src="{{ asset('backends/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
         <script src="{{ asset('backends/assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-us-merc-en.js') }}"></script>
 
-        <!-- Required datatable js -->
-        <script src="{{ asset('backends/assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-        <script src="{{ asset('backends/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-        
         <!-- Responsive examples -->
         <script src="{{ asset('backends/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
         <script src="{{ asset('backends/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}"></script>
@@ -147,10 +146,6 @@
            <!-- init js -->
            <script src="{{ asset('backends/assets/js/pages/form-editor.init.js') }}"></script>
 
-
-        <!-- Required datatable js -->
-        <script src="{{ asset('backends/assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-        <script src="{{ asset('backends/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
 
         <!-- Datatable init js -->
         <script src="{{ asset('backends/assets/js/pages/datatables.init.js') }}"></script>
@@ -183,6 +178,12 @@
             }
             @endif 
            </script>
+
+           <!-- Required datatable js -->
+        <script src="{{ asset('backends/assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('backends/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+        <!-- Datatable init js -->
+        <script src="{{ asset('backends/assets/js/pages/datatables.init.js') }}"></script>
     </body>
 
 </html>

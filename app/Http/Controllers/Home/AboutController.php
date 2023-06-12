@@ -96,13 +96,49 @@ class AboutController extends Controller
             'messege' => 'Multi Image Upload Successfully',
             'alert-type' => 'success'
         );
-        return redirect()->back()->with($notification);
+        return redirect()->route('all.multi.image')->with($notification);
     }
 
     public function AllMultiImage()
     {
         $allMultiImage = MultiImage::all();
         return view('admin.about.all_multi_image', compact('allMultiImage'));
+    }
+    public function EditMultiImage($id)
+    {
+        $editMultiImage = MultiImage::findOrFail($id);
+        return view('admin.about.edit_multi_image', compact('editMultiImage'));
+    }
+
+    public function UpdateMultiImage(Request $request)
+    {
+        $multi_image_id = $request->id;
+
+
+        if ($request->file('multi_image')) {
+            $file = $request->file('multi_image');
+
+            // $filename = date('YmdHi') . $file->getClientOriginalName();
+            $name_gen = hexdec(uniqid()) . '.' . $file->getClientOriginalExtension();
+
+            Image::make($file)->resize(749, 467)->save('image/multi/' . $name_gen);
+
+            $save_url = 'image/multi/' . $name_gen;
+
+            MultiImage::findOrFail($multi_image_id)->update([
+                // 'title' => $request->title,
+                // 'short_title' => $request->short_title,
+                // 'short_Description' => $request->short_Description,
+                // 'logn_Description' => $request->logn_Description,
+                'multi_image' =>  $save_url,
+
+            ]);
+            $notification = array(
+                'messege' => 'Multi Image Updated Successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->route('all.multi.image')->with($notification);
+        }
     }
 
     // Frontend Code..................................................................................................................
