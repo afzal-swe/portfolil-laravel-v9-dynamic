@@ -141,6 +141,21 @@ class AboutController extends Controller
         }
     }
 
+    public function destroy($id)
+    {
+        $multi = MultiImage::findOrFail($id);
+        $img = $multi->multi_image; // Multi_image come to the database Fild name.
+
+        unlink($img);
+        MultiImage::findOrFail($id)->delete();
+
+        $notification = array(
+            'messege' => 'Multi Image Updated Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+
     // Frontend Code..................................................................................................................
     public function HomeAbout()
     {

@@ -184,6 +184,10 @@
         <script src="{{ asset('backends/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
         <!-- Datatable init js -->
         <script src="{{ asset('backends/assets/js/pages/datatables.init.js') }}"></script>
+
+        {{-- Sweet Alert --}}
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <script src="{{ asset('backends/assets/js/code.js') }}"></script>
     </body>
 
 </html>
