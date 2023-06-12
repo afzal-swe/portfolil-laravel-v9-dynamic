@@ -86,6 +86,7 @@ Route::get('/portfolio/details/{id}', [PortfolioController::class, 'details'])->
 Route::get('/blog', [BlogCategoryController::class, 'index'])->name('blog_category.index')->middleware(['auth', 'verified']);
 Route::get('/blog/create', [BlogCategoryController::class, 'create'])->name('blog_category.create')->middleware(['auth', 'verified']);
 Route::post('/blog/store', [BlogCategoryController::class, 'store'])->name('blog_category.store')->middleware(['auth', 'verified']);
+Route::get('/blog/delete/{id}', [BlogCategoryController::class, 'destroy'])->name('blog_category.destroy')->middleware(['auth', 'verified']);
 
 
 

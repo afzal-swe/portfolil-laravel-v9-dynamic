@@ -46,4 +46,17 @@ class BlogCategoryController extends Controller
         return redirect()->route('blog_category.index')->with($notification);
     }
     // __End Method
+
+    // __Blog Category Delete Function__ //
+    public function destroy($id)
+    {
+        BlogCategory::findOrFail($id)->delete();
+
+        $notification = array(
+            'messege' => 'Portfolio Delete Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    // __End Method
 }
