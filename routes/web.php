@@ -84,6 +84,8 @@ Route::get('/portfolio/details/{id}', [PortfolioController::class, 'details'])->
 
 // __Blog Category Route Section__ //
 Route::get('/blog', [BlogCategoryController::class, 'index'])->name('blog_category.index')->middleware(['auth', 'verified']);
+Route::get('/blog/create', [BlogCategoryController::class, 'create'])->name('blog_category.create')->middleware(['auth', 'verified']);
+Route::post('/blog/store', [BlogCategoryController::class, 'store'])->name('blog_category.store')->middleware(['auth', 'verified']);
 
 
 

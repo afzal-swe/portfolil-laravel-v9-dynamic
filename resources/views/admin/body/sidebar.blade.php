@@ -54,7 +54,7 @@
                     </ul>
                 </li>
 
-                {{-- About Page Start --}}
+                {{-- Blog Category Page Start --}}
 
                 <li class="menu-title">Pages</li>
 
@@ -64,7 +64,7 @@
                         <span>Blog Category</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="auth-login.html">Add Blog Category</a></li>
+                        <li><a href="{{ route('blog_category.create') }}">Add Blog Category</a></li>
                         <li><a href="{{ route('blog_category.index') }}">Manage Blog Category</a></li>
                     </ul>
                 </li>
