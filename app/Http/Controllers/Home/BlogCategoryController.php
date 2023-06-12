@@ -32,7 +32,7 @@ class BlogCategoryController extends Controller
         $request->validate([
             'blog_category' => 'required',
         ], [
-            'blog_category' => 'The Blog Category Not Type',
+            'blog_category' => 'The Blog Category is Required',
         ]);
 
         BlogCategory::insert([

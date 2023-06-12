@@ -7,6 +7,8 @@ use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\Home\AboutController;
 use App\Http\Controllers\Home\PortfolioController;
 use App\Http\Controllers\Home\BlogCategoryController;
+use App\Http\Controllers\Home\BlogController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -83,12 +85,16 @@ Route::get('/portfolio/details/{id}', [PortfolioController::class, 'details'])->
 
 
 // __Blog Category Route Section__ //
-Route::get('/blog', [BlogCategoryController::class, 'index'])->name('blog_category.index')->middleware(['auth', 'verified']);
-Route::get('/blog/create', [BlogCategoryController::class, 'create'])->name('blog_category.create')->middleware(['auth', 'verified']);
-Route::post('/blog/store', [BlogCategoryController::class, 'store'])->name('blog_category.store')->middleware(['auth', 'verified']);
-Route::get('/blog/edit/{id}', [BlogCategoryController::class, 'edit'])->name('blog_category.edit')->middleware(['auth', 'verified']);
-Route::post('/blog/update/{id}', [BlogCategoryController::class, 'update'])->name('blog_category.update')->middleware(['auth', 'verified']);
-Route::get('/blog/delete/{id}', [BlogCategoryController::class, 'destroy'])->name('blog_category.destroy')->middleware(['auth', 'verified']);
+Route::get('/blog/category', [BlogCategoryController::class, 'index'])->name('blog_category.index')->middleware(['auth', 'verified']);
+Route::get('/blog/category/create', [BlogCategoryController::class, 'create'])->name('blog_category.create')->middleware(['auth', 'verified']);
+Route::post('/blog/category/store', [BlogCategoryController::class, 'store'])->name('blog_category.store')->middleware(['auth', 'verified']);
+Route::get('/blog/category/edit/{id}', [BlogCategoryController::class, 'edit'])->name('blog_category.edit')->middleware(['auth', 'verified']);
+Route::post('/blog/category/update/{id}', [BlogCategoryController::class, 'update'])->name('blog_category.update')->middleware(['auth', 'verified']);
+Route::get('/blog/category/delete/{id}', [BlogCategoryController::class, 'destroy'])->name('blog_category.destroy')->middleware(['auth', 'verified']);
+
+
+// __Blog Route Section__ //
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index')->middleware(['auth', 'verified']);
 
 
 

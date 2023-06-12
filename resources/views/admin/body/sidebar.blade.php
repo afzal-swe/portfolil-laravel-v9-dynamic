@@ -69,6 +69,19 @@
                     </ul>
                 </li>
 
+
+                {{-- Blog Category Page Start --}}
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-account-circle-line"></i>
+                        <span>Blog Page Setup</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="#">Create A New Blog</a></li>
+                        <li><a href="{{ route('blog.index') }}">Manage Blog</a></li>
+                    </ul>
+                </li>
+
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-profile-line"></i>
