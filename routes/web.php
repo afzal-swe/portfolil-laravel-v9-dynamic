@@ -101,6 +101,10 @@ Route::get('/blog/edit/{id}', [BlogController::class, 'edit'])->name('blog.edit'
 Route::post('/blog/update/{id}', [BlogController::class, 'update'])->name('blog.update')->middleware(['auth', 'verified']);
 Route::get('/blog/view/{id}', [BlogController::class, 'view'])->name('blog.view')->middleware(['auth', 'verified']);
 Route::get('/blog/delete/{id}', [BlogController::class, 'destroy'])->name('blog.destroy')->middleware(['auth', 'verified']);
+// __Blog Frontend Route Section__ //
+Route::get('/blog/details/{id}', [BlogController::class, 'details'])->name('blog.details');
+Route::get('/category/blog/{id}', [BlogController::class, 'categoryBlog'])->name('category.blog');
+Route::get('/blog', [BlogController::class, 'HomeBlog'])->name('home.blog');
 
 
 
