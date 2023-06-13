@@ -55,5 +55,18 @@ class FooterController extends Controller
     }
     // End Method
 
+    // __Footer Delete Method__ //
+    public function destroy($id)
+    {
+        Footer::findOrFail($id)->delete();
+
+        $notification = array(
+            'messege' => 'Footer Delete Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    // End Method
+
 
 }
