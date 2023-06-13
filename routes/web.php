@@ -110,6 +110,8 @@ Route::get('/blog/home', [BlogController::class, 'HomeBlog'])->name('home.blog')
 
 // __Footer Route Section__ //
 Route::get('/footer', [FooterController::class, 'index'])->name('footer.index')->middleware(['auth', 'verified']);
+Route::get('/footer/create', [FooterController::class, 'create'])->name('footer.create')->middleware(['auth', 'verified']);
+Route::post('/footer/store', [FooterController::class, 'store'])->name('footer.store')->middleware(['auth', 'verified']);
 
 
 

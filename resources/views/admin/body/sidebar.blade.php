@@ -90,7 +90,7 @@
                         <span>Footer Page Setup</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="#">Create A New Footer</a></li>
+                        <li><a href="{{ route('footer.create') }}">Create A New Footer</a></li>
                         <li><a href="{{ route('footer.index') }}">Manage Footer</a></li>
                     </ul>
                 </li>
