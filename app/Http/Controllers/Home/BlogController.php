@@ -69,6 +69,63 @@ class BlogController extends Controller
     }
     // __End Method
 
+
+    // __Blog  Edit Function__ //
+    public function edit($id)
+    {
+        $blog_category = BlogCategory::orderBy('blog_category', 'ASC')->get();
+        $edit = Blog::findOrFail($id);
+        return view('admin.blog_section.edit', compact('edit', 'blog_category'));
+    }
+    // __End Method
+
+
+    // __Blog  Update Function__ //
+    public function update(Request $request)
+    {
+        $blog_id = $request->id;
+
+
+        if ($request->file('blog_image')) {
+            $file = $request->file('blog_image');
+
+            $name_gen = hexdec(uniqid()) . '.' . $file->getClientOriginalExtension();
+
+            Image::make($file)->resize(430, 327)->save('image/blog/' . $name_gen);
+
+            $save_url = 'image/blog/' . $name_gen;
+
+            Blog::findOrFail($blog_id)->update([
+                'blog_category_id' => $request->blog_category_id,
+                'blog_title' => $request->blog_title,
+                'blog_tags' => $request->blog_tags,
+                'blog_description' => $request->blog_description,
+                'blog_slug' => Str::of($request->blog_title)->slug('-'),
+                'blog_image' => $save_url,
+
+            ]);
+            $notification = array(
+                'messege' => 'Blog Updated Successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->route('blog.index')->with($notification);
+        } else {
+            Blog::findOrFail($blog_id)->update([
+                'blog_category_id' => $request->blog_category_id,
+                'blog_title' => $request->blog_title,
+                'blog_tags' => $request->blog_tags,
+                'blog_description' => $request->blog_description,
+                'blog_slug' => Str::of($request->blog_title)->slug('-'),
+            ]);
+            $notification = array(
+                'messege' => 'Blog Updated Without Image Successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->route('blog.index')->with($notification);
+        }
+    }
+    // __End Method
+
     // __Blog  Manage Function__ //
     public function view($id)
     {
