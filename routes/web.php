@@ -8,6 +8,7 @@ use App\Http\Controllers\Home\AboutController;
 use App\Http\Controllers\Home\PortfolioController;
 use App\Http\Controllers\Home\BlogCategoryController;
 use App\Http\Controllers\Home\BlogController;
+use App\Http\Controllers\Home\FooterController;
 
 
 /*
@@ -104,7 +105,11 @@ Route::get('/blog/delete/{id}', [BlogController::class, 'destroy'])->name('blog.
 // __Blog Frontend Route Section__ //
 Route::get('/blog/details/{id}', [BlogController::class, 'details'])->name('blog.details');
 Route::get('/category/blog/{id}', [BlogController::class, 'categoryBlog'])->name('category.blog');
-Route::get('/blog', [BlogController::class, 'HomeBlog'])->name('home.blog');
+Route::get('/blog/home', [BlogController::class, 'HomeBlog'])->name('home.blog');
+
+
+// __Footer Route Section__ //
+Route::get('/footer', [FooterController::class, 'index'])->name('footer.index')->middleware(['auth', 'verified']);
 
 
 

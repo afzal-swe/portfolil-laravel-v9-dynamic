@@ -82,6 +82,19 @@
                     </ul>
                 </li>
 
+
+                {{-- Footer Page Start --}}
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-account-circle-line"></i>
+                        <span>Footer Page Setup</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="#">Create A New Footer</a></li>
+                        <li><a href="{{ route('footer.index') }}">Manage Footer</a></li>
+                    </ul>
+                </li>
+
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-profile-line"></i>
