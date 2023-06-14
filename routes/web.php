@@ -112,6 +112,8 @@ Route::get('/blog/home', [BlogController::class, 'HomeBlog'])->name('home.blog')
 Route::get('/footer', [FooterController::class, 'index'])->name('footer.index')->middleware(['auth', 'verified']);
 Route::get('/footer/create', [FooterController::class, 'create'])->name('footer.create')->middleware(['auth', 'verified']);
 Route::post('/footer/store', [FooterController::class, 'store'])->name('footer.store')->middleware(['auth', 'verified']);
+Route::get('/footer/edit/{id}', [FooterController::class, 'edit'])->name('footer.edit')->middleware(['auth', 'verified']);
+Route::post('/footer/update/{id}', [FooterController::class, 'update'])->name('footer.update')->middleware(['auth', 'verified']);
 Route::get('/footer/view/{id}', [FooterController::class, 'view'])->name('footer.view')->middleware(['auth', 'verified']);
 Route::get('/footer/destroy/{id}', [FooterController::class, 'destroy'])->name('footer.destroy')->middleware(['auth', 'verified']);
 

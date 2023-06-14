@@ -45,6 +45,7 @@ class FooterController extends Controller
             'facebook' => $request->facebook,
             'twitter' => $request->twitter,
             'copyright' => $request->copyright,
+            'short_description' => $request->short_description,
             'created_at' => Carbon::now(),
         ]);
         $notification = array(
@@ -52,6 +53,47 @@ class FooterController extends Controller
             'alert-type' => 'success'
         );
         return redirect()->route('footer.index')->with($notification);
+    }
+    // End Method
+
+
+    // __Footer Edit Method__ //
+    public function edit($id)
+    {
+        $edit = Footer::findOrFail($id);
+        return view('admin.footer_section.edit', compact('edit'));
+    }
+    // End Method
+
+
+    // __Footer Update Method__ //
+    public function update(Request $request)
+    {
+        $update_footer = $request->id;
+
+        Footer::findOrFail($update_footer)->update([
+            'number' => $request->number,
+            'address' => $request->address,
+            'email' => $request->email,
+            'facebook' => $request->facebook,
+            'twitter' => $request->twitter,
+            'short_description' => $request->short_description,
+            'copyright' => $request->copyright,
+
+        ]);
+        $notification = array(
+            'messege' => 'Footer Update Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('footer.index')->with($notification);
+    }
+    // End Method
+
+    // __Footer View Method__ //
+    public function view($id)
+    {
+        $view = Footer::findOrFail($id);
+        return view('admin.footer_section.view', compact('view'));
     }
     // End Method
 
@@ -67,15 +109,4 @@ class FooterController extends Controller
         return redirect()->back()->with($notification);
     }
     // End Method
-
-
-    // __Footer View Method__ //
-    public function view($id)
-    {
-        $view = Footer::findOrFail($id);
-        return view('admin.footer_section.view', compact('view'));
-    }
-    // End Method
-
-
 }
