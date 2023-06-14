@@ -58,19 +58,22 @@ Route::controller(HomeSliderController::class)->group(function () {
 });
 
 //__ About Page Route __//
-Route::controller(AboutController::class)->group(function () {
-    // Backend Route ///
-    Route::get('/about/page', 'AboutPage')->name('about.page');
-    Route::post('/update/about/{id}', 'UpdateAbout')->name('update.about');
-    Route::get('/about/multi/image', 'AboutMultiImage')->name('about.multi.image');
-    Route::post('/store/multi/image', 'StoreMultiImage')->name('store.multi.image');
-    Route::get('/all/multi/image', 'AllMultiImage')->name('all.multi.image');
-    Route::get('/edit/multi/image/{id}', 'EditMultiImage')->name('edit.image');
-    Route::post('/update/multi/image/{id}', 'UpdateMultiImage')->name('update.multi.image');
-    Route::get('/delete/multi/image/{id}', 'destroy')->name('delete.image');
+Route::middleware(['auth'])->group(function () {
 
-    // Frontend Route ///
-    Route::get('/about', 'HomeAbout')->name('home.about');
+    Route::controller(AboutController::class)->group(function () {
+        // Backend Route ///
+        Route::get('/about/page', 'AboutPage')->name('about.page');
+        Route::post('/update/about/{id}', 'UpdateAbout')->name('update.about');
+        Route::get('/about/multi/image', 'AboutMultiImage')->name('about.multi.image');
+        Route::post('/store/multi/image', 'StoreMultiImage')->name('store.multi.image');
+        Route::get('/all/multi/image', 'AllMultiImage')->name('all.multi.image');
+        Route::get('/edit/multi/image/{id}', 'EditMultiImage')->name('edit.image');
+        Route::post('/update/multi/image/{id}', 'UpdateMultiImage')->name('update.multi.image');
+        Route::get('/delete/multi/image/{id}', 'destroy')->name('delete.image');
+
+        // Frontend Route ///
+        Route::get('/about', 'HomeAbout')->name('home.about');
+    });
 });
 
 // __Portfolio Route Section__ //
