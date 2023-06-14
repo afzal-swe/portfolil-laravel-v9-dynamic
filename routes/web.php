@@ -82,6 +82,7 @@ Route::post('/update/portfolio/{id}', [PortfolioController::class, 'update'])->n
 Route::get('/view/portfolio/{id}', [PortfolioController::class, 'view'])->name('portfolio.view')->middleware(['auth', 'verified']);
 Route::get('/delete/portfolio/{id}', [PortfolioController::class, 'destroy'])->name('portfolio.destroy')->middleware(['auth', 'verified']);
 // __Portfolio Frontend Route section__ //
+Route::get('/portfolio/home', [PortfolioController::class, 'Home'])->name('portfolio.home');
 Route::get('/portfolio/details/{id}', [PortfolioController::class, 'details'])->name('portfolio.details');
 
 

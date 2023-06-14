@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Carbon;
 
+use function Ramsey\Uuid\v1;
+
 class PortfolioController extends Controller
 {
     // __Portfolio Manage Function__ //
@@ -145,6 +147,15 @@ class PortfolioController extends Controller
     // __End Method__ //
 
     // __Frontend...................................................................................................
+    // __Portfolio Home Page Function__ //
+    public function Home()
+    {
+        $portfolio = Portfolio::all();
+        return view('frontend.portfolio_section.home', compact('portfolio'));
+    }
+    // __End Method__ //
+
+
     // __Portfolio Details Function__ //
     public function details($id)
     {

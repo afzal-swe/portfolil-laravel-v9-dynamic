@@ -33,6 +33,7 @@
                                         <th>Phone</th>
                                         <th>Subject</th>
                                         <th>Comment</th>
+                                        <th>Date</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -47,6 +48,7 @@
                                         <td>{{ $row->phone }}</td>
                                         <td>{{ $row->subject }}</td>
                                         <td>{{ $row->message }}</td>
+                                        <td>{{ Carbon\Carbon::parse($row->created_at)->diffForHumans() }}</td>
                                         <td>
                                             <a href="{{ route('contact.view',$row->id) }}" class="btn btn-success sm" title="View Data"><i class="ri-eye-off-fill"></i></a>
                                             <a href="{{ route('contact.destroy',$row->id) }}" id="delete" class="btn btn-danger sm" title="Delete Data"><i class="fas fa-trash-alt"></i></a>
