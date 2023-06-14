@@ -9,6 +9,7 @@ use App\Http\Controllers\Home\PortfolioController;
 use App\Http\Controllers\Home\BlogCategoryController;
 use App\Http\Controllers\Home\BlogController;
 use App\Http\Controllers\Home\FooterController;
+use App\Http\Controllers\Home\ContactController;
 
 
 /*
@@ -84,7 +85,6 @@ Route::get('/delete/portfolio/{id}', [PortfolioController::class, 'destroy'])->n
 Route::get('/portfolio/details/{id}', [PortfolioController::class, 'details'])->name('portfolio.details');
 
 
-
 // __Blog Category Route Section__ //
 Route::get('/blog/category', [BlogCategoryController::class, 'index'])->name('blog_category.index')->middleware(['auth', 'verified']);
 Route::get('/blog/category/create', [BlogCategoryController::class, 'create'])->name('blog_category.create')->middleware(['auth', 'verified']);
@@ -116,6 +116,11 @@ Route::get('/footer/edit/{id}', [FooterController::class, 'edit'])->name('footer
 Route::post('/footer/update/{id}', [FooterController::class, 'update'])->name('footer.update')->middleware(['auth', 'verified']);
 Route::get('/footer/view/{id}', [FooterController::class, 'view'])->name('footer.view')->middleware(['auth', 'verified']);
 Route::get('/footer/destroy/{id}', [FooterController::class, 'destroy'])->name('footer.destroy')->middleware(['auth', 'verified']);
+
+
+// __Contact Route Section__ //
+Route::get('/contact', [ContactController::class, 'contact'])->name('contact.me');
+Route::post('/contact/message', [ContactController::class, 'store'])->name('store.message');
 
 
 
