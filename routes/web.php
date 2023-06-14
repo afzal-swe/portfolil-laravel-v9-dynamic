@@ -23,9 +23,9 @@ use App\Http\Controllers\Home\ContactController;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.index');
-});
+// Route::get('/', function () {
+//     return view('frontend.index');
+// });
 
 Route::get('/dashboard', function () {
     return view('admin.index');
@@ -39,7 +39,6 @@ Route::middleware('auth')->group(function () {
 
 
 //__ Admin All Route __//
-
 Route::controller(AdminController::class)->group(function () {
     Route::get('/admin/logout', 'destroy')->name('admin.logout');
     Route::get('/admin/profile', 'profile')->name('admin.profile')->middleware(['auth', 'verified']);
@@ -53,6 +52,7 @@ Route::controller(AdminController::class)->group(function () {
 
 //__ Home Slider Route __//
 Route::controller(HomeSliderController::class)->group(function () {
+    Route::get('/', 'home')->name('home');
     Route::get('/home/slide', 'HomeSlider')->name('home.slide');
     Route::post('/update/slider/{id}', 'UpdateProfile')->name('update.slide');
 });
