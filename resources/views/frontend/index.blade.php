@@ -1,5 +1,9 @@
 @extends('frontend.main_master')
 @section('main')
+
+@section('title')
+    Home Page | Afzal
+@endsection
  
  <!-- banner-area -->
  @include('frontend.home_slider.home_slide')

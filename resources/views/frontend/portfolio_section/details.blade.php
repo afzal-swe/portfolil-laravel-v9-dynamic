@@ -1,6 +1,10 @@
 @extends('frontend.main_master')
 @section('main')
 
+@section('title')
+    Portfolio Details Page | Afzal
+@endsection
+
 <main>
 
     <!-- breadcrumb-area -->

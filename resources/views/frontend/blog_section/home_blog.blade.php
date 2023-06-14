@@ -1,7 +1,9 @@
 @extends('frontend.main_master')
 @section('main')
 
-
+@section('title')
+    Home Blog Page | Afzal
+@endsection
 <main>
 
     <!-- breadcrumb-area -->
