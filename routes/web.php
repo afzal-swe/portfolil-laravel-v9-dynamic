@@ -119,7 +119,9 @@ Route::get('/footer/destroy/{id}', [FooterController::class, 'destroy'])->name('
 
 
 // __Contact Route Section__ //
-Route::get('/contact', [ContactController::class, 'contact'])->name('contact.me');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+// __Contact Frontend Route Section
+Route::get('/contact/page', [ContactController::class, 'create'])->name('contact.create');
 Route::post('/contact/message', [ContactController::class, 'store'])->name('store.message');
 
 

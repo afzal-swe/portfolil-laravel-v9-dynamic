@@ -10,12 +10,21 @@ use Illuminate\Support\Carbon;
 class ContactController extends Controller
 {
     // __Contact Manage Method__ //
-    public function contact()
+    public function index()
+    {
+        $all_message_info = Contact::all();
+        return view('admin.contact_section.index', compact('all_message_info'));
+    }
+    // End Method
+
+
+    //__Frontend Start::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    // __Contact Manage Method__ //
+    public function create()
     {
         return view('frontend.contact_section.index');
     }
     // End Method
-
 
     // __Store Massage Method__ //
     public function store(Request $request)
@@ -43,4 +52,5 @@ class ContactController extends Controller
         return redirect()->back()->with($notification);
     }
     // End Method
+    //__Frontend End::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 }
