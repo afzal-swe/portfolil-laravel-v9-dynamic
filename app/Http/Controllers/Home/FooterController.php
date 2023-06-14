@@ -69,4 +69,13 @@ class FooterController extends Controller
     // End Method
 
 
+    // __Footer View Method__ //
+    public function view($id)
+    {
+        $view = Footer::findOrFail($id);
+        return view('admin.footer_section.view', compact('view'));
+    }
+    // End Method
+
+
 }
