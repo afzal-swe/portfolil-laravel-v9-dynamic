@@ -27,6 +27,20 @@ class ContactController extends Controller
     // End Method
 
 
+    // __Delete Single Message Method__ //
+    public function destroy($id)
+    {
+        Contact::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Message Delete Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    // End Method
+
+
 
 
     //__Frontend Start::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
