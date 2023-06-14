@@ -18,6 +18,17 @@ class ContactController extends Controller
     // End Method
 
 
+    // __View Single Message Method__ //
+    public function view($id)
+    {
+        $single_message_view = Contact::findOrFail($id);
+        return view('admin.contact_section.view', compact('single_message_view'));
+    }
+    // End Method
+
+
+
+
     //__Frontend Start::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     // __Contact Manage Method__ //
     public function create()
