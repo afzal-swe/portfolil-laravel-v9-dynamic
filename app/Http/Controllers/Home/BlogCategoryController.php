@@ -40,7 +40,7 @@ class BlogCategoryController extends Controller
             'created_at' => Carbon::now(),
         ]);
         $notification = array(
-            'messege' => 'New Blog Category Added Successfully',
+            'message' => 'New Blog Category Added Successfully',
             'alert-type' => 'success'
         );
         return redirect()->route('blog_category.index')->with($notification);
@@ -67,7 +67,7 @@ class BlogCategoryController extends Controller
         ]);
 
         $notification = array(
-            'messege' => 'Blog Category Update Successfully',
+            'message' => 'Blog Category Update Successfully',
             'alert-type' => 'success'
         );
         return redirect()->route('blog_category.index')->with($notification);
@@ -80,7 +80,7 @@ class BlogCategoryController extends Controller
         BlogCategory::findOrFail($id)->delete();
 
         $notification = array(
-            'messege' => 'Blog Category Delete Successfully',
+            'message' => 'Blog Category Delete Successfully',
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);

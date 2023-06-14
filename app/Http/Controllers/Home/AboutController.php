@@ -48,7 +48,7 @@ class AboutController extends Controller
 
             ]);
             $notification = array(
-                'messege' => 'Home Slider Update Successfully',
+                'message' => 'Home Slider Update Successfully',
                 'alert-type' => 'success'
             );
             return redirect()->back()->with($notification);
@@ -61,7 +61,7 @@ class AboutController extends Controller
 
             ]);
             $notification = array(
-                'messege' => 'Home Slider Update Successfully',
+                'message' => 'Home Slider Update Successfully',
                 'alert-type' => 'success'
             );
             return redirect()->back()->with($notification);
@@ -93,7 +93,7 @@ class AboutController extends Controller
             ]);
         } // End of the foreach
         $notification = array(
-            'messege' => 'Multi Image Upload Successfully',
+            'message' => 'Multi Image Upload Successfully',
             'alert-type' => 'success'
         );
         return redirect()->route('all.multi.image')->with($notification);
@@ -130,7 +130,7 @@ class AboutController extends Controller
 
             ]);
             $notification = array(
-                'messege' => 'Multi Image Updated Successfully',
+                'message' => 'Multi Image Updated Successfully',
                 'alert-type' => 'success'
             );
             return redirect()->route('all.multi.image')->with($notification);
@@ -146,7 +146,7 @@ class AboutController extends Controller
         MultiImage::findOrFail($id)->delete();
 
         $notification = array(
-            'messege' => 'Multi Image Updated Successfully',
+            'message' => 'Multi Image Delete Successfully',
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);

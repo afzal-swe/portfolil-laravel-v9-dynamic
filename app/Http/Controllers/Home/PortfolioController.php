@@ -59,7 +59,7 @@ class PortfolioController extends Controller
 
         ]);
         $notification = array(
-            'messege' => 'New Portfolio Added Successfully',
+            'message' => 'New Portfolio Added Successfully',
             'alert-type' => 'success'
         );
         return redirect()->route('portfolio.index')->with($notification);
@@ -98,7 +98,7 @@ class PortfolioController extends Controller
 
             ]);
             $notification = array(
-                'messege' => 'Portfolio Update Successfully',
+                'message' => 'Portfolio Update Successfully',
                 'alert-type' => 'success'
             );
             return redirect()->route('portfolio.index')->with($notification);
@@ -110,7 +110,7 @@ class PortfolioController extends Controller
 
             ]);
             $notification = array(
-                'messege' => 'Portfolio Update Successfully',
+                'message' => 'Portfolio Update Successfully',
                 'alert-type' => 'success'
             );
             return redirect()->route('portfolio.index')->with($notification);
@@ -137,7 +137,7 @@ class PortfolioController extends Controller
         Portfolio::findOrFail($id)->delete();
 
         $notification = array(
-            'messege' => 'Portfolio Delete Successfully',
+            'message' => 'Portfolio Delete Successfully',
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);

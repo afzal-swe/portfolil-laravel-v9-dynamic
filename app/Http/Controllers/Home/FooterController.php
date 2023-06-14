@@ -49,7 +49,7 @@ class FooterController extends Controller
             'created_at' => Carbon::now(),
         ]);
         $notification = array(
-            'messege' => 'New Footer Added Successfully',
+            'message' => 'New Footer Added Successfully',
             'alert-type' => 'success'
         );
         return redirect()->route('footer.index')->with($notification);
@@ -82,7 +82,7 @@ class FooterController extends Controller
 
         ]);
         $notification = array(
-            'messege' => 'Footer Update Successfully',
+            'message' => 'Footer Update Successfully',
             'alert-type' => 'success'
         );
         return redirect()->route('footer.index')->with($notification);
@@ -103,7 +103,7 @@ class FooterController extends Controller
         Footer::findOrFail($id)->delete();
 
         $notification = array(
-            'messege' => 'Footer Delete Successfully',
+            'message' => 'Footer Delete Successfully',
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);

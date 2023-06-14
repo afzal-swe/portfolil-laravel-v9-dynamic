@@ -40,7 +40,7 @@ class HomeSliderController extends Controller
 
             ]);
             $notification = array(
-                'messege' => 'Home Slider Update Successfully',
+                'message' => 'Home Slider Update Successfully',
                 'alert-type' => 'success'
             );
             return redirect()->back()->with($notification);
@@ -52,7 +52,7 @@ class HomeSliderController extends Controller
 
             ]);
             $notification = array(
-                'messege' => 'Home Slider Update Without image Successfully',
+                'message' => 'Home Slider Update Without image Successfully',
                 'alert-type' => 'success'
             );
             return redirect()->back()->with($notification);

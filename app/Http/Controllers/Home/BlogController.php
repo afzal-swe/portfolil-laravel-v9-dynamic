@@ -64,7 +64,7 @@ class BlogController extends Controller
 
         ]);
         $notification = array(
-            'messege' => 'New Blog Added Successfully',
+            'message' => 'New Blog Added Successfully',
             'alert-type' => 'success'
         );
         return redirect()->route('blog.index')->with($notification);
@@ -107,7 +107,7 @@ class BlogController extends Controller
 
             ]);
             $notification = array(
-                'messege' => 'Blog Updated Successfully',
+                'message' => 'Blog Updated Successfully',
                 'alert-type' => 'success'
             );
             return redirect()->route('blog.index')->with($notification);
@@ -120,7 +120,7 @@ class BlogController extends Controller
                 'blog_slug' => Str::of($request->blog_title)->slug('-'),
             ]);
             $notification = array(
-                'messege' => 'Blog Updated Without Image Successfully',
+                'message' => 'Blog Updated Without Image Successfully',
                 'alert-type' => 'success'
             );
             return redirect()->route('blog.index')->with($notification);
@@ -147,7 +147,7 @@ class BlogController extends Controller
         Blog::findOrFail($id)->delete();
 
         $notification = array(
-            'messege' => 'Portfolio Delete Successfully',
+            'message' => 'Portfolio Delete Successfully',
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
