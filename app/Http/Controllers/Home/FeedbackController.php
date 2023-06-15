@@ -15,4 +15,13 @@ class FeedbackController extends Controller
         return view('admin.client_feedback_section.index', compact('feedbackData'));
     }
     // End Method
+
+
+    // __View Manage Method__ //
+    public function view($id)
+    {
+        $feedbackView = Feedback::findOrFail($id);
+        return view('admin.client_feedback_section.view', compact('feedbackView'));
+    }
+    // End Method
 }
