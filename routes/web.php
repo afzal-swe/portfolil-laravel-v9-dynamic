@@ -10,6 +10,7 @@ use App\Http\Controllers\Home\BlogCategoryController;
 use App\Http\Controllers\Home\BlogController;
 use App\Http\Controllers\Home\FooterController;
 use App\Http\Controllers\Home\ContactController;
+use App\Http\Controllers\Home\MessageController;
 
 
 /*
@@ -129,6 +130,14 @@ Route::get('/contact/destroy/{id}', [ContactController::class, 'destroy'])->name
 // __Contact Frontend Route Section
 Route::get('/contact/page', [ContactController::class, 'create'])->name('contact.create');
 Route::post('/contact/message', [ContactController::class, 'store'])->name('store.message');
+
+
+// __Message Route Section__ //
+Route::get('/contact/message', [MessageController::class, 'index'])->name('message.index');
+Route::get('/message/view/{id}', [MessageController::class, 'view'])->name('message.view');
+// Route::get('/contact/destroy/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
+// __Message Frontend Route Section
+Route::post('/message/send', [MessageController::class, 'store'])->name('message.store');
 
 
 

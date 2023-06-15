@@ -138,7 +138,7 @@
                         <span>Say Hello</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="#">Manage Contact</a></li>
+                        <li><a href="{{ route('message.index') }}">Manage Contact</a></li>
                     </ul>
                 </li>
                 
