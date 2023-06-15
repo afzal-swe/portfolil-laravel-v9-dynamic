@@ -125,7 +125,7 @@
                         <span>Client FeedBack</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="#">Create FeedBack</a></li>
+                        <li><a href="{{ route('feedback.create') }}">Create FeedBack</a></li>
                         <li><a href="{{ route('feedback.index') }}">Manage FeedBack</a></li>
                     </ul>
                 </li>

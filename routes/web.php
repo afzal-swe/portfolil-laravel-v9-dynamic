@@ -143,6 +143,10 @@ Route::post('/message/send', [MessageController::class, 'store'])->name('message
 
 // __FeedBack Route Section__ //
 Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index')->middleware(['auth', 'verified']);
+Route::get('/feedback/create', [FeedbackController::class, 'create'])->name('feedback.create')->middleware(['auth', 'verified']);
+Route::post('/feedback/store', [FeedbackController::class, 'store'])->name('feedback.store')->middleware(['auth', 'verified']);
+Route::get('/feedback/edit/{id}', [FeedbackController::class, 'edit'])->name('feedback.edit')->middleware(['auth', 'verified']);
+Route::post('/feedback/update/{id}', [FeedbackController::class, 'update'])->name('feedback.update')->middleware(['auth', 'verified']);
 Route::get('/feedback/view/{id}', [FeedbackController::class, 'view'])->name('feedback.view')->middleware(['auth', 'verified']);
 Route::get('/feedback/destroy/{id}', [FeedbackController::class, 'destroy'])->name('feedback.destroy')->middleware(['auth', 'verified']);
 
