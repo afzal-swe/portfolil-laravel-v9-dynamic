@@ -25,6 +25,19 @@ class MessageController extends Controller
     }
     // End Method
 
+    // __Delete Single Message Method__ //
+    public function destroy($id)
+    {
+        Message::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Message Delete Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    // End Method
+
 
     // __Store Massage Method__ //
     public function store(Request $request)

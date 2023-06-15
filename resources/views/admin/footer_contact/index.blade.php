@@ -49,7 +49,7 @@
                                         <td>{{ Carbon\Carbon::parse($row->created_at)->diffForHumans() }}</td>
                                         <td>
                                             <a href="{{ route('message.view',$row->id) }}" class="btn btn-success sm" title="View Data"><i class="ri-eye-off-fill"></i></a>
-                                            <a href="#" id="delete" class="btn btn-danger sm" title="Delete Data"><i class="fas fa-trash-alt"></i></a>
+                                            <a href="{{ route('message.destroy',$row->id) }}" id="delete" class="btn btn-danger sm" title="Delete Data"><i class="fas fa-trash-alt"></i></a>
                                             
                                         </td>
                                     </tr>

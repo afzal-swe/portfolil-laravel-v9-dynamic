@@ -135,7 +135,7 @@ Route::post('/contact/message', [ContactController::class, 'store'])->name('stor
 // __Message Route Section__ //
 Route::get('/contact/message', [MessageController::class, 'index'])->name('message.index');
 Route::get('/message/view/{id}', [MessageController::class, 'view'])->name('message.view');
-// Route::get('/contact/destroy/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
+Route::get('/message/destroy/{id}', [MessageController::class, 'destroy'])->name('message.destroy');
 // __Message Frontend Route Section
 Route::post('/message/send', [MessageController::class, 'store'])->name('message.store');
 
