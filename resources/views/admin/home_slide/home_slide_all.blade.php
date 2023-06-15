@@ -32,7 +32,7 @@
                                 </div>
 
                                 <div class="mb-4 row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Title<span class="text-danger">*</span></label>
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Video url<span class="text-danger">*</span></label>
                                     <div class="col-sm-10">
                                         <input id="video_url" name="video_url" class="form-control" type="text" value="{{ $homeSlide->video_url }}">
                                     </div>
@@ -49,7 +49,7 @@
                                     <label for="example-text-input" class="col-sm-2 col-form-label"> </label>
                                     <div class="col-sm-10">
                                         <img id="showImage" class="rounded avatar-lg" src="{{ (!empty($homeSlide->home_slide)) ? 
-                                            url('image/home_image/'.$homeSlide->home_slide):url('image/No_Image_Available.jpg') }}" alt="Card image cap">
+                                            url($homeSlide->home_slide):url('image/No_Image_Available.jpg') }}" alt="Card image cap">
                                     </div>
                                 </div>
 

@@ -31,10 +31,11 @@ class HomeSliderController extends Controller
         if ($request->file('home_slide')) {
             $file = $request->file('home_slide');
 
+            @unlink(public_path('image/home_image/' . $slide_id->home_slide)); //replece this image
             // $filename = date('YmdHi') . $file->getClientOriginalName();
             $name_gen = hexdec(uniqid()) . '.' . $file->getClientOriginalExtension();
 
-            Image::make($file)->resize(749, 467)->save('image/home_image/' . $name_gen);
+            Image::make($file)->resize(636, 852)->save('image/home_image/' . $name_gen);
 
             $save_url = 'image/home_image/' . $name_gen;
 

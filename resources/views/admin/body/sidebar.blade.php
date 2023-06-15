@@ -82,6 +82,77 @@
                     </ul>
                 </li>
 
+                {{-- Services Page Start --}}
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-account-circle-line"></i>
+                        <span>Services Page Setup</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="#">Add New Services</a></li>
+                        <li><a href="#">Manage Services</a></li>
+                    </ul>
+                </li>
+
+                {{-- Work Process Page Start --}}
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-account-circle-line"></i>
+                        <span>Working Process Setup</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="#">Create Working</a></li>
+                        <li><a href="#">Manage Working</a></li>
+                    </ul>
+                </li>
+
+                {{-- Working Group Page Start --}}
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-account-circle-line"></i>
+                        <span>Working Group Setup</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="#">Create Group</a></li>
+                        <li><a href="#">Manage Group</a></li>
+                    </ul>
+                </li>
+
+                {{-- Client FeedBack Page Start --}}
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-account-circle-line"></i>
+                        <span>Client FeedBack</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="#">Create FeedBack</a></li>
+                        <li><a href="#">Manage FeedBack</a></li>
+                    </ul>
+                </li>
+
+
+                {{-- Say Hello Page Start --}}
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-account-circle-line"></i>
+                        <span>Say Hello</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="#">Manage Contact</a></li>
+                    </ul>
+                </li>
+                
+
+                {{-- Contact Page Start --}}
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-account-circle-line"></i>
+                        <span>Contact Page Setup</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('contact.index') }}">Manage Contact</a></li>
+                    </ul>
+                </li>
 
                 {{-- Footer Page Start --}}
                 <li>
@@ -92,17 +163,6 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('footer.create') }}">Create A New Footer</a></li>
                         <li><a href="{{ route('footer.index') }}">Manage Footer</a></li>
-                    </ul>
-                </li>
-
-                {{-- Contact Page Start --}}
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-account-circle-line"></i>
-                        <span>Contact Page Setup</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('contact.index') }}">Manage Contact</a></li>
                     </ul>
                 </li>
 
