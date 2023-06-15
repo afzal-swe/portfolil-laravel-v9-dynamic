@@ -11,6 +11,7 @@ use App\Http\Controllers\Home\BlogController;
 use App\Http\Controllers\Home\FooterController;
 use App\Http\Controllers\Home\ContactController;
 use App\Http\Controllers\Home\MessageController;
+use App\Http\Controllers\Home\FeedbackController;
 
 
 /*
@@ -124,20 +125,25 @@ Route::get('/footer/destroy/{id}', [FooterController::class, 'destroy'])->name('
 
 
 // __Contact Route Section__ //
-Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
-Route::get('/contact/view/{id}', [ContactController::class, 'view'])->name('contact.view');
-Route::get('/contact/destroy/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index')->middleware(['auth', 'verified']);
+Route::get('/contact/view/{id}', [ContactController::class, 'view'])->name('contact.view')->middleware(['auth', 'verified']);
+Route::get('/contact/destroy/{id}', [ContactController::class, 'destroy'])->name('contact.destroy')->middleware(['auth', 'verified']);
 // __Contact Frontend Route Section
 Route::get('/contact/page', [ContactController::class, 'create'])->name('contact.create');
 Route::post('/contact/message', [ContactController::class, 'store'])->name('store.message');
 
 
 // __Message Route Section__ //
-Route::get('/contact/message', [MessageController::class, 'index'])->name('message.index');
-Route::get('/message/view/{id}', [MessageController::class, 'view'])->name('message.view');
-Route::get('/message/destroy/{id}', [MessageController::class, 'destroy'])->name('message.destroy');
+Route::get('/contact/message', [MessageController::class, 'index'])->name('message.index')->middleware(['auth', 'verified']);
+Route::get('/message/view/{id}', [MessageController::class, 'view'])->name('message.view')->middleware(['auth', 'verified']);
+Route::get('/message/destroy/{id}', [MessageController::class, 'destroy'])->name('message.destroy')->middleware(['auth', 'verified']);
 // __Message Frontend Route Section
 Route::post('/message/send', [MessageController::class, 'store'])->name('message.store');
+
+
+// __FeedBack Route Section__ //
+Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index')->middleware(['auth', 'verified']);
+
 
 
 
