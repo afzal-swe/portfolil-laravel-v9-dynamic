@@ -24,4 +24,17 @@ class FeedbackController extends Controller
         return view('admin.client_feedback_section.view', compact('feedbackView'));
     }
     // End Method
+
+    // __Delete Manage Method__ //
+    public function destroy($id)
+    {
+        Feedback::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Feedback Delete Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    // End Method
 }

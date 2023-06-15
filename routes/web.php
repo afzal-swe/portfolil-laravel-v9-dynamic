@@ -144,6 +144,7 @@ Route::post('/message/send', [MessageController::class, 'store'])->name('message
 // __FeedBack Route Section__ //
 Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index')->middleware(['auth', 'verified']);
 Route::get('/feedback/view/{id}', [FeedbackController::class, 'view'])->name('feedback.view')->middleware(['auth', 'verified']);
+Route::get('/feedback/destroy/{id}', [FeedbackController::class, 'destroy'])->name('feedback.destroy')->middleware(['auth', 'verified']);
 
 
 
