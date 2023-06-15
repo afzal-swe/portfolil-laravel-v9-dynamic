@@ -16,7 +16,7 @@
                         <h2 class="title">Contact us</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Contact</li>
                             </ol>
                         </nav>
@@ -83,7 +83,7 @@
                         </div>
                         <div class="contact__info__content">
                             <h4 class="title">address line</h4>
-                            <span>Bowery St, New York, <br> NY 10013,USA</span>
+                            <span>Banasree Block-B, Road-5<br>H-21, L-5 (Dhaka)</span>
                         </div>
                     </div>
                 </div>
@@ -94,8 +94,8 @@
                         </div>
                         <div class="contact__info__content">
                             <h4 class="title">Phone Number</h4>
-                            <span>+1255 - 568 - 6523</span>
-                            <span>+1255 - 568 - 6523</span>
+                            <span>+880 1811178307</span>
+                            <span>+880 1611178307</span>
                         </div>
                     </div>
                 </div>
@@ -106,8 +106,9 @@
                         </div>
                         <div class="contact__info__content">
                             <h4 class="title">Mail Address</h4>
-                            <span>email@example.com</span>
-                            <span>info@yourdomain.com</span>
+                            <span>afzal.swe@gmail.com</span>
+                            <span>mdafzalhossen16813@gmail.com</span>
+                           
                         </div>
                     </div>
                 </div>
@@ -128,15 +129,16 @@
                         </div>
                         <div class="homeContact__content">
                             <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
-                            <h2 class="mail"><a href="mailto:Info@webmail.com">Info@webmail.com</a></h2>
+                            <h2 class="mail"><a href="mailto:afzal.swe@gmail.com">afzal.swe@gmail.com</a></h2>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="homeContact__form">
-                            <form action="#">
-                                <input type="text" placeholder="Enter name*">
-                                <input type="email" placeholder="Enter mail*">
-                                <input type="number" placeholder="Enter number*">
+                            <form method="POST" action="{{ route('message.store') }}">
+                                @csrf
+                                <input name="name" type="text" placeholder="Enter name*">
+                                <input name="email" type="email" placeholder="Enter mail*">
+                                <input name="phone" type="number" placeholder="Enter number*">
                                 <textarea name="message" placeholder="Enter Massage*"></textarea>
                                 <button type="submit">Send Message</button>
                             </form>

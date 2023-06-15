@@ -335,7 +335,7 @@
                         </div>
                         <div class="homeContact__content">
                             <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
-                            <h2 class="mail"><a href="mailto:Info@webmail.com">Info@webmail.com</a></h2>
+                            <h2 class="mail"><a href="mailto:afzal.swe@gmail.com">afzal.swe@gmail.com</a></h2>
                         </div>
                     </div>
                     <div class="col-lg-6">
