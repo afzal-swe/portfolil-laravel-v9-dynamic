@@ -77,6 +77,11 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/about', 'HomeAbout')->name('home.about');
     });
 });
+Route::controller(AboutController::class)->group(function () {
+
+    // Frontend Route ///
+    Route::get('/about', 'HomeAbout')->name('home.about');
+});
 
 // __Portfolio Route Section__ //
 Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio.index')->middleware(['auth', 'verified']);
@@ -149,6 +154,10 @@ Route::get('/feedback/edit/{id}', [FeedbackController::class, 'edit'])->name('fe
 Route::post('/feedback/update/{id}', [FeedbackController::class, 'update'])->name('feedback.update')->middleware(['auth', 'verified']);
 Route::get('/feedback/view/{id}', [FeedbackController::class, 'view'])->name('feedback.view')->middleware(['auth', 'verified']);
 Route::get('/feedback/destroy/{id}', [FeedbackController::class, 'destroy'])->name('feedback.destroy')->middleware(['auth', 'verified']);
+
+
+// __ User Route Section__ //
+
 
 
 

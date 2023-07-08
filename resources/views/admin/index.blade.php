@@ -26,76 +26,90 @@
             </div>
             <!-- end page title -->
 
+            @php
+                $user = DB::table('users')->get();
+                $portfolio = DB::table('portfolios')->get();
+                $blog = DB::table('blogs')->get();
+            @endphp
+
             <div class="row">
                 <div class="col-xl-3 col-md-6">
                     <div class="card">
                         <div class="card-body">
-                            <div class="d-flex">
-                                <div class="flex-grow-1">
-                                    <p class="text-truncate font-size-14 mb-2">Total Sales</p>
-                                    <h4 class="mb-2">1452</h4>
-                                    <p class="text-muted mb-0"><span class="text-success fw-bold font-size-12 me-2"><i class="ri-arrow-right-up-line me-1 align-middle"></i>9.23%</span>from previous period</p>
-                                </div>
-                                <div class="avatar-sm">
-                                    <span class="avatar-title bg-light text-primary rounded-3">
-                                        <i class="ri-shopping-cart-2-line font-size-24"></i>  
-                                    </span>
-                                </div>
-                            </div>                                            
+                            <a href="{{ route('blog.index') }}">
+                                <div class="d-flex">
+                                    <div class="flex-grow-1">
+                                        <p class="text-truncate font-size-14 mb-2">Total Blog</p>
+                                        <h4 class="mb-2">{{ count($blog) }}</h4>
+                                        <p class="text-muted mb-0"><span class="text-success fw-bold font-size-12 me-2"><i class="ri-arrow-right-up-line me-1 align-middle"></i>9.23%</span>from previous period</p>
+                                    </div>
+                                    <div class="avatar-sm">
+                                        <span class="avatar-title bg-light text-primary rounded-3">
+                                            <i class="ri-shopping-cart-2-line font-size-24"></i>  
+                                        </span>
+                                    </div>
+                                </div>  
+                            </a>                                          
                         </div><!-- end cardbody -->
                     </div><!-- end card -->
                 </div><!-- end col -->
                 <div class="col-xl-3 col-md-6">
                     <div class="card">
                         <div class="card-body">
-                            <div class="d-flex">
-                                <div class="flex-grow-1">
-                                    <p class="text-truncate font-size-14 mb-2">New Orders</p>
-                                    <h4 class="mb-2">938</h4>
-                                    <p class="text-muted mb-0"><span class="text-danger fw-bold font-size-12 me-2"><i class="ri-arrow-right-down-line me-1 align-middle"></i>1.09%</span>from previous period</p>
-                                </div>
-                                <div class="avatar-sm">
-                                    <span class="avatar-title bg-light text-success rounded-3">
-                                        <i class="mdi mdi-currency-usd font-size-24"></i>  
-                                    </span>
-                                </div>
-                            </div>                                              
+                            <a href="{{ route('portfolio.index') }}">
+                                <div class="d-flex">
+                                    <div class="flex-grow-1">
+                                        <p class="text-truncate font-size-14 mb-2">Total Portfolio</p>
+                                        <h4 class="mb-2">{{ count($portfolio) }}</h4>
+                                        <p class="text-muted mb-0"><span class="text-danger fw-bold font-size-12 me-2"><i class="ri-arrow-right-down-line me-1 align-middle"></i>1.09%</span>from previous period</p>
+                                    </div>
+                                    <div class="avatar-sm">
+                                        <span class="avatar-title bg-light text-success rounded-3">
+                                            <i class="mdi mdi-currency-usd font-size-24"></i>  
+                                        </span>
+                                    </div>
+                                </div>    
+                            </a>                                          
                         </div><!-- end cardbody -->
                     </div><!-- end card -->
                 </div><!-- end col -->
                 <div class="col-xl-3 col-md-6">
                     <div class="card">
                         <div class="card-body">
-                            <div class="d-flex">
-                                <div class="flex-grow-1">
-                                    <p class="text-truncate font-size-14 mb-2">New Users</p>
-                                    <h4 class="mb-2">8246</h4>
-                                    <p class="text-muted mb-0"><span class="text-success fw-bold font-size-12 me-2"><i class="ri-arrow-right-up-line me-1 align-middle"></i>16.2%</span>from previous period</p>
-                                </div>
-                                <div class="avatar-sm">
-                                    <span class="avatar-title bg-light text-primary rounded-3">
-                                        <i class="ri-user-3-line font-size-24"></i>  
-                                    </span>
-                                </div>
-                            </div>                                              
+                            <a href="#">
+                                <div class="d-flex">
+                                    <div class="flex-grow-1">
+                                        <p class="text-truncate font-size-14 mb-2">Total Users</p>
+                                        <h4 class="mb-2">{{ count($user) }}</h4>
+                                        <p class="text-muted mb-0"><span class="text-success fw-bold font-size-12 me-2"><i class="ri-arrow-right-up-line me-1 align-middle"></i>16.2%</span>from previous period</p>
+                                    </div>
+                                    <div class="avatar-sm">
+                                        <span class="avatar-title bg-light text-primary rounded-3">
+                                            <i class="ri-user-3-line font-size-24"></i>  
+                                        </span>
+                                    </div>
+                                </div>      
+                            </a>                                            
                         </div><!-- end cardbody -->
                     </div><!-- end card -->
                 </div><!-- end col -->
                 <div class="col-xl-3 col-md-6">
                     <div class="card">
                         <div class="card-body">
-                            <div class="d-flex">
-                                <div class="flex-grow-1">
-                                    <p class="text-truncate font-size-14 mb-2">Unique Visitors</p>
-                                    <h4 class="mb-2">29670</h4>
-                                    <p class="text-muted mb-0"><span class="text-success fw-bold font-size-12 me-2"><i class="ri-arrow-right-up-line me-1 align-middle"></i>11.7%</span>from previous period</p>
-                                </div>
-                                <div class="avatar-sm">
-                                    <span class="avatar-title bg-light text-success rounded-3">
-                                        <i class="mdi mdi-currency-btc font-size-24"></i>  
-                                    </span>
-                                </div>
-                            </div>                                              
+                            <a href="#">
+                                <div class="d-flex">
+                                    <div class="flex-grow-1">
+                                        <p class="text-truncate font-size-14 mb-2">Total Services</p>
+                                        <h4 class="mb-2">0</h4>
+                                        <p class="text-muted mb-0"><span class="text-success fw-bold font-size-12 me-2"><i class="ri-arrow-right-up-line me-1 align-middle"></i>11.7%</span>from previous period</p>
+                                    </div>
+                                    <div class="avatar-sm">
+                                        <span class="avatar-title bg-light text-success rounded-3">
+                                            <i class="mdi mdi-currency-btc font-size-24"></i>  
+                                        </span>
+                                    </div>
+                                </div>     
+                            </a>                                             
                         </div><!-- end cardbody -->
                     </div><!-- end card -->
                 </div><!-- end col -->

@@ -9,7 +9,7 @@
                 <li class="menu-title">Menu</li>
 
                 <li>
-                    <a href="#" class="waves-effect">
+                    <a href="{{ route('dashboard') }}" class="waves-effect">
                         <i class="ri-dashboard-line"></i><span class="badge rounded-pill bg-success float-end">3</span>
                         <span>Dashboard</span>
                     </a>
@@ -54,10 +54,22 @@
                     </ul>
                 </li>
 
-                {{-- Blog Category Page Start --}}
+                {{-- Users Page Start --}}
 
                 <li class="menu-title">Pages</li>
 
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-account-circle-line"></i>
+                        <span>Users</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('login') }}">Add User</a></li>
+                        <li><a href="">Manage Users</a></li>
+                    </ul>
+                </li>
+
+                {{-- Blog Category Page Start --}}
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-account-circle-line"></i>
