@@ -113,8 +113,8 @@
                         <span>Working Process Setup</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="#">Create Working</a></li>
-                        <li><a href="#">Manage Working</a></li>
+                        <li><a href="{{ route('working.create') }}">Create Working</a></li>
+                        <li><a href="{{ route('working.index') }}">Manage Working</a></li>
                     </ul>
                 </li>
 

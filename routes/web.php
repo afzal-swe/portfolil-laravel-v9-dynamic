@@ -13,6 +13,7 @@ use App\Http\Controllers\Home\ContactController;
 use App\Http\Controllers\Home\MessageController;
 use App\Http\Controllers\Home\FeedbackController;
 use App\Http\Controllers\Home\UserController;
+use App\Http\Controllers\Home\WorkingController;
 
 
 /*
@@ -160,6 +161,12 @@ Route::get('/feedback/destroy/{id}', [FeedbackController::class, 'destroy'])->na
 // __ User Route Section__ //
 Route::get('/manage/user', [UserController::class, 'index'])->name('user.index')->middleware(['auth', 'verified']);
 Route::get('/user/delete/{id}', [UserController::class, 'destroy'])->name('user.delete')->middleware(['auth', 'verified']);
+
+// __ Working process System Route Section__ //
+Route::get('/working/process', [WorkingController::class, 'index'])->name('working.index')->middleware(['auth', 'verified']);
+Route::get('/working/process/create', [WorkingController::class, 'create'])->name('working.create')->middleware(['auth', 'verified']);
+Route::post('/working/process/store', [WorkingController::class, 'store'])->name('working.store')->middleware(['auth', 'verified']);
+
 
 
 
