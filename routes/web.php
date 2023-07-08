@@ -12,6 +12,7 @@ use App\Http\Controllers\Home\FooterController;
 use App\Http\Controllers\Home\ContactController;
 use App\Http\Controllers\Home\MessageController;
 use App\Http\Controllers\Home\FeedbackController;
+use App\Http\Controllers\Home\UserController;
 
 
 /*
@@ -157,6 +158,7 @@ Route::get('/feedback/destroy/{id}', [FeedbackController::class, 'destroy'])->na
 
 
 // __ User Route Section__ //
+Route::get('/manage/user', [UserController::class, 'index'])->name('user.index')->middleware(['auth', 'verified']);
 
 
 

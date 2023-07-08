@@ -64,8 +64,8 @@
                         <span>Users</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('login') }}">Add User</a></li>
-                        <li><a href="">Manage Users</a></li>
+                        <li><a href="#">Add User</a></li>
+                        <li><a href="{{ route('user.index') }}">Manage Users</a></li>
                     </ul>
                 </li>
 
