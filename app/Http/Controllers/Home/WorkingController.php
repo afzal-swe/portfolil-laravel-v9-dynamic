@@ -36,4 +36,11 @@ class WorkingController extends Controller
         $notification = array('message' => 'Add Working Process Successfully', 'alert-type' => 'success');
         return redirect()->route('working.index')->with($notification);
     }
+    public function destroy($id)
+    {
+
+        WorkingProcess::findOrFail($id)->delete();
+        $notification = array('message' => ' Working Process Delete Successfully', 'alert-type' => 'success');
+        return redirect()->route('working.index')->with($notification);
+    }
 }

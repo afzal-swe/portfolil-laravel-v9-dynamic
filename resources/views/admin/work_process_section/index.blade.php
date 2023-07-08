@@ -46,7 +46,7 @@
                                         <td>
                                             <a href="#" class="btn btn-success sm" title="View Data"><i class="ri-eye-off-fill"></i></a>
                                             <a href="#" class="btn btn-info sm" title="Edit Data"><i class="fas fa-edit"></i></a>
-                                            <a href="#" id="delete" class="btn btn-danger sm" title="Delete Data"><i class="fas fa-trash-alt"></i></a>
+                                            <a href="{{ route('working.delete',$row->id) }}" id="delete" class="btn btn-danger sm" title="Delete Data"><i class="fas fa-trash-alt"></i></a>
                                             
                                         </td>
                                     </tr>
