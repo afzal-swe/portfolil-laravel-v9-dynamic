@@ -159,6 +159,7 @@ Route::get('/feedback/destroy/{id}', [FeedbackController::class, 'destroy'])->na
 
 // __ User Route Section__ //
 Route::get('/manage/user', [UserController::class, 'index'])->name('user.index')->middleware(['auth', 'verified']);
+Route::get('/user/delete/{id}', [UserController::class, 'destroy'])->name('user.delete')->middleware(['auth', 'verified']);
 
 
 
