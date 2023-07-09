@@ -37,6 +37,26 @@ class WorkingController extends Controller
         return redirect()->route('working.index')->with($notification);
     }
 
+    public function edit($id)
+    {
+        $edit = WorkingProcess::findOrFail($id);
+        return view('admin.work_process_section.edit', compact('edit'));
+    }
+
+    public function update(Request $request)
+    {
+        $update = $request->id;
+
+        WorkingProcess::findOrFail($update)->update([
+            'title' => $request->title,
+            'description' => $request->description,
+        ]);
+        $notification = array('message' => ' Working Process Update Successfully', 'alert-type' => 'success');
+        return redirect()->route('working.index')->with($notification);
+    }
+
+
+
     public function view($id)
     {
         $view = WorkingProcess::findOrFail($id);
