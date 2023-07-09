@@ -176,6 +176,7 @@ Route::get('/working/process/delete/{id}', [WorkingController::class, 'destroy']
 
 Route::get('/services', [ServicesController::class, 'index'])->name('services.index')->middleware(['auth', 'verified']);
 Route::get('/services/create', [ServicesController::class, 'create'])->name('services.create')->middleware(['auth', 'verified']);
+Route::post('/services/store', [ServicesController::class, 'store'])->name('services.store')->middleware(['auth', 'verified']);
 
 
 
