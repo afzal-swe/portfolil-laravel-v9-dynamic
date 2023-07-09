@@ -101,8 +101,8 @@
                         <span>Services Page Setup</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="#">Add New Services</a></li>
-                        <li><a href="#">Manage Services</a></li>
+                        <li><a href="{{ route('services.create') }}">Add New Services</a></li>
+                        <li><a href="{{ route('services.index') }}">Manage Services</a></li>
                     </ul>
                 </li>
 

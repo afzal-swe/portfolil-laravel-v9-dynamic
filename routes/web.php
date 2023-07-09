@@ -14,6 +14,7 @@ use App\Http\Controllers\Home\MessageController;
 use App\Http\Controllers\Home\FeedbackController;
 use App\Http\Controllers\Home\UserController;
 use App\Http\Controllers\Home\WorkingController;
+use App\Http\Controllers\Home\ServicesController;
 
 
 /*
@@ -170,6 +171,12 @@ Route::get('/working/process/edit/{id}', [WorkingController::class, 'edit'])->na
 Route::post('/working/process/update/{id}', [WorkingController::class, 'update'])->name('working.update')->middleware(['auth', 'verified']);
 Route::get('/working/process/view/{id}', [WorkingController::class, 'view'])->name('working.view')->middleware(['auth', 'verified']);
 Route::get('/working/process/delete/{id}', [WorkingController::class, 'destroy'])->name('working.delete')->middleware(['auth', 'verified']);
+
+// __ services System Route Section__ //
+
+Route::get('/services', [ServicesController::class, 'index'])->name('services.index')->middleware(['auth', 'verified']);
+Route::get('/services/create', [ServicesController::class, 'create'])->name('services.create')->middleware(['auth', 'verified']);
+
 
 
 
