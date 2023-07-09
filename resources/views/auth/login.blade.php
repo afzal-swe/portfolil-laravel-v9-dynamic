@@ -10,6 +10,7 @@
         <meta content="Themesdesign" name="author" />
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{ asset('backends/assets/images/favicon.ico') }}">
+       
 
         <!-- Bootstrap Css -->
         <link href="{{ asset('backends/assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
@@ -33,8 +34,9 @@
                         <div class="text-center mt-4">
                             <div class="mb-3">
                                 <a href="index.html" class="auth-logo">
-                                    <img src="{{ asset('backends/assets/images/logo-dark.png') }}" height="30" class="logo-dark mx-auto" alt="">
-                                    <img src="{{ asset('backends/assets/images/logo-light.png') }}" height="30" class="logo-light mx-auto" alt="">
+                                    {{-- <img src="{{ asset('backends/assets/images/logo-dark.png') }}" height="30" class="logo-dark mx-auto" alt="">
+                                    <img src="{{ asset('backends/assets/images/logo-light.png') }}" height="30" class="logo-light mx-auto" alt=""> --}}
+                                    <h3>Supper Admin</h3>
                                     
                                 </a>
                             </div>

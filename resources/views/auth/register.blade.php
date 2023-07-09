@@ -30,8 +30,9 @@
                         <div class="text-center mt-4">
                             <div class="mb-3">
                                 <a href="index.html" class="auth-logo">
-                                    <img src="{{ asset ('backends/assets/images/logo-dark.png') }}" height="30" class="logo-dark mx-auto" alt="">
-                                    <img src="{{ asset ('backends/assets/images/logo-light.png') }}" height="30" class="logo-light mx-auto" alt="">
+                                    {{-- <img src="{{ asset ('backends/assets/images/logo-dark.png') }}" height="30" class="logo-dark mx-auto" alt="">
+                                    <img src="{{ asset ('backends/assets/images/logo-light.png') }}" height="30" class="logo-light mx-auto" alt=""> --}}
+                                    <h3>Sub Admin Registration</h3>
                                 </a>
                             </div>
                         </div>
