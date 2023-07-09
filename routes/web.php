@@ -166,6 +166,7 @@ Route::get('/user/delete/{id}', [UserController::class, 'destroy'])->name('user.
 Route::get('/working/process', [WorkingController::class, 'index'])->name('working.index')->middleware(['auth', 'verified']);
 Route::get('/working/process/create', [WorkingController::class, 'create'])->name('working.create')->middleware(['auth', 'verified']);
 Route::post('/working/process/store', [WorkingController::class, 'store'])->name('working.store')->middleware(['auth', 'verified']);
+Route::get('/working/process/view/{id}', [WorkingController::class, 'view'])->name('working.view')->middleware(['auth', 'verified']);
 Route::get('/working/process/delete/{id}', [WorkingController::class, 'destroy'])->name('working.delete')->middleware(['auth', 'verified']);
 
 

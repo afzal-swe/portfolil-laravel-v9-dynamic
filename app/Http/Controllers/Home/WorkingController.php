@@ -36,6 +36,13 @@ class WorkingController extends Controller
         $notification = array('message' => 'Add Working Process Successfully', 'alert-type' => 'success');
         return redirect()->route('working.index')->with($notification);
     }
+
+    public function view($id)
+    {
+        $view = WorkingProcess::findOrFail($id);
+        return view('admin.work_process_section.view', compact('view'));
+    }
+
     public function destroy($id)
     {
 
