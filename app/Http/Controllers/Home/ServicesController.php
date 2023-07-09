@@ -49,4 +49,29 @@ class ServicesController extends Controller
         $notification = array('message' => 'New Serveces Added Successfully', 'alert-type' => 'success');
         return redirect()->route('services.index')->with($notification);
     }
+
+    public function destroy($id)
+    {
+        $Services = Services::findOrFail($id);
+        $img = $Services->image; // Multi_image come to the database Fild name.
+
+        if ($img == NULL) {
+            Services::findOrFail($id)->delete();
+
+            $notification = array(
+                'message' => 'This Services Delete Without Image Successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->back()->with($notification);
+        } else {
+            unlink($img);
+            Services::findOrFail($id)->delete();
+
+            $notification = array(
+                'message' => 'This Services Delete Successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->back()->with($notification);
+        }
+    }
 }
