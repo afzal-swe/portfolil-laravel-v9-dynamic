@@ -42,32 +42,48 @@ class BlogController extends Controller
             'blog_title' => 'required',
             'blog_tags' => 'required',
             'blog_description' => 'required',
-            'blog_image' => 'required',
         ]);
 
-        $img = $request->file('blog_image');
+        if ($request->file('blog_image')) {
+            $img = $request->file('blog_image');
 
-        $name_gen = hexdec(uniqid()) . '.' . $img->getClientOriginalExtension();
+            $name_gen = hexdec(uniqid()) . '.' . $img->getClientOriginalExtension();
 
-        Image::make($img)->resize(430, 327)->save("image/blog/" . $name_gen);
+            Image::make($img)->resize(430, 327)->save("image/blog/" . $name_gen);
 
-        $save_img_url = "image/blog/" . $name_gen;
+            $save_img_url = "image/blog/" . $name_gen;
 
-        Blog::insert([
-            'blog_category_id' => $request->blog_category_id,
-            'blog_title' => $request->blog_title,
-            'blog_tags' => $request->blog_tags,
-            'blog_description' => $request->blog_description,
-            'blog_slug' => Str::of($request->blog_title)->slug('-'),
-            'blog_image' => $save_img_url,
-            'created_at' => Carbon::now(),
+            Blog::insert([
+                'blog_category_id' => $request->blog_category_id,
+                'blog_title' => $request->blog_title,
+                'blog_tags' => $request->blog_tags,
+                'blog_description' => $request->blog_description,
+                'blog_slug' => Str::of($request->blog_title)->slug('-'),
+                'blog_image' => $save_img_url,
+                'created_at' => Carbon::now(),
 
-        ]);
-        $notification = array(
-            'message' => 'New Blog Added Successfully',
-            'alert-type' => 'success'
-        );
-        return redirect()->route('blog.index')->with($notification);
+            ]);
+            $notification = array(
+                'message' => 'New Blog Added Successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->route('blog.index')->with($notification);
+        } else {
+            Blog::insert([
+                'blog_category_id' => $request->blog_category_id,
+                'blog_title' => $request->blog_title,
+                'blog_tags' => $request->blog_tags,
+                'blog_description' => $request->blog_description,
+                'blog_slug' => Str::of($request->blog_title)->slug('-'),
+                'created_at' => Carbon::now(),
+
+            ]);
+            $notification = array(
+                'message' => 'New Blog Added Successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->route('blog.index')->with($notification);
+        }
     }
     // __End Method
 
@@ -142,6 +158,16 @@ class BlogController extends Controller
     {
         $blog = Blog::findOrFail($id);
         $img = $blog->blog_image; // Multi_image come to the database Fild name.
+
+        if ($img == NULL) {
+            Blog::findOrFail($id)->delete();
+
+            $notification = array(
+                'message' => 'Portfolio Delete Successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->back()->with($notification);
+        }
 
         unlink($img);
         Blog::findOrFail($id)->delete();
