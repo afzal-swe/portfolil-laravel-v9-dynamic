@@ -125,8 +125,8 @@
                         <span>Working Group Setup</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="#">Create Group</a></li>
-                        <li><a href="#">Manage Group</a></li>
+                        <li><a href="#">Multi Image</a></li>
+                        <li><a href="{{ route('group.edit') }}">About Group</a></li>
                     </ul>
                 </li>
 

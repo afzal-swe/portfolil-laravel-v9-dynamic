@@ -15,6 +15,7 @@ use App\Http\Controllers\Home\FeedbackController;
 use App\Http\Controllers\Home\UserController;
 use App\Http\Controllers\Home\WorkingController;
 use App\Http\Controllers\Home\ServicesController;
+use App\Http\Controllers\Home\WorkingGroupController;
 
 
 /*
@@ -180,6 +181,11 @@ Route::get('/services/edit/{id}', [ServicesController::class, 'edit'])->name('se
 Route::post('/services/update/{id}', [ServicesController::class, 'update'])->name('services.update')->middleware(['auth', 'verified']);
 Route::get('/services/view/{id}', [ServicesController::class, 'view'])->name('services.view')->middleware(['auth', 'verified']);
 Route::get('/services/delete/{id}', [ServicesController::class, 'destroy'])->name('services.delete')->middleware(['auth', 'verified']);
+
+// __ Working Group About Route Section__ //
+Route::get('/working/grout/edit', [WorkingGroupController::class, 'edit'])->name('group.edit')->middleware(['auth', 'verified']);
+Route::post('/working/grout/update/{id}', [WorkingGroupController::class, 'update'])->name('working_about.update')->middleware(['auth', 'verified']);
+
 
 
 
