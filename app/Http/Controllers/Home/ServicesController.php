@@ -63,6 +63,52 @@ class ServicesController extends Controller
         }
     }
 
+    public function edit($id)
+    {
+
+        $edit = Services::findOrFail($id);
+        return view('admin.services_section.edit', compact('edit'));
+    }
+
+    public function update(Request $request)
+    {
+        $update = $request->id;
+
+        if ($request->file('image')) {
+            $img = $request->file('image');
+
+            @unlink(public_path('image/services/' . $update->image)); //replece this image
+
+            $name_gen = hexdec(uniqid()) . '.' . $img->getClientOriginalExtension();
+
+            Image::make($img)->resize(323, 240)->save("image/services/" . $name_gen);
+
+            $save_img_url = "image/services/" . $name_gen;
+
+            Services::findOrFail($update)->update([
+                'title' => $request->title,
+                'short_description' => $request->short_description,
+                'logn_description' => $request->logn_description,
+                'image' => $save_img_url,
+                'created_at' => Carbon::now(),
+
+            ]);
+            $notification = array('message' => 'Serveces Update With Image Successfully', 'alert-type' => 'success');
+            return redirect()->route('services.index')->with($notification);
+        } else {
+
+            Services::findOrFail($update)->update([
+                'title' => $request->title,
+                'short_description' => $request->short_description,
+                'logn_description' => $request->logn_description,
+                'created_at' => Carbon::now(),
+
+            ]);
+            $notification = array('message' => 'Serveces Update WithOut Image Successfully', 'alert-type' => 'success');
+            return redirect()->route('services.index')->with($notification);
+        }
+    }
+
     public function view($id)
     {
 

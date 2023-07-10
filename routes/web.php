@@ -176,6 +176,8 @@ Route::get('/working/process/delete/{id}', [WorkingController::class, 'destroy']
 Route::get('/services', [ServicesController::class, 'index'])->name('services.index')->middleware(['auth', 'verified']);
 Route::get('/services/create', [ServicesController::class, 'create'])->name('services.create')->middleware(['auth', 'verified']);
 Route::post('/services/store', [ServicesController::class, 'store'])->name('services.store')->middleware(['auth', 'verified']);
+Route::get('/services/edit/{id}', [ServicesController::class, 'edit'])->name('services.edit')->middleware(['auth', 'verified']);
+Route::post('/services/update/{id}', [ServicesController::class, 'update'])->name('services.update')->middleware(['auth', 'verified']);
 Route::get('/services/view/{id}', [ServicesController::class, 'view'])->name('services.view')->middleware(['auth', 'verified']);
 Route::get('/services/delete/{id}', [ServicesController::class, 'destroy'])->name('services.delete')->middleware(['auth', 'verified']);
 
