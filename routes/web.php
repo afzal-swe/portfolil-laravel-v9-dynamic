@@ -16,6 +16,7 @@ use App\Http\Controllers\Home\UserController;
 use App\Http\Controllers\Home\WorkingController;
 use App\Http\Controllers\Home\ServicesController;
 use App\Http\Controllers\Home\WorkingGroupController;
+use App\Http\Controllers\Home\WorkingGroupImageController;
 
 
 /*
@@ -185,6 +186,11 @@ Route::get('/services/delete/{id}', [ServicesController::class, 'destroy'])->nam
 // __ Working Group About Route Section__ //
 Route::get('/working/grout/edit', [WorkingGroupController::class, 'edit'])->name('group.edit')->middleware(['auth', 'verified']);
 Route::post('/working/grout/update/{id}', [WorkingGroupController::class, 'update'])->name('working_about.update')->middleware(['auth', 'verified']);
+
+// __ Multi Image Route Section__ //
+Route::get('/image', [WorkingGroupImageController::class, 'create'])->name('multi_image.create')->middleware(['auth', 'verified']);
+Route::get('/image/add', [WorkingGroupImageController::class, 'store'])->name('multi_image.store')->middleware(['auth', 'verified']);
+
 
 
 

@@ -12,7 +12,7 @@
                         <h4 class="text-muted font-size-18"><b>Multi Image</b></h4>
     
                         <div class="p-4">
-                            <form method="POST" action="#" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('multi_image.store') }}" enctype="multipart/form-data">
                                 @csrf
                                 
 
@@ -51,7 +51,7 @@
     </div>
 </div>
 
-<script type="text/javascript">
+{{-- <script type="text/javascript">
     $(document).ready(function(){
         $('#multi_image').change(function(e){
             var reader = new FileReader();
@@ -61,5 +61,5 @@
             reader.readAsDataURL(e.target.files['0']);
         });
     });
-</script>
+</script> --}}
 @endsection
