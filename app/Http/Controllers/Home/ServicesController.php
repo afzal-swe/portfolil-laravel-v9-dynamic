@@ -28,26 +28,39 @@ class ServicesController extends Controller
             'title' => 'required',
             'short_description' => 'required',
             'logn_description' => 'required',
-            'image' => 'required',
         ]);
-        $img = $request->file('image');
 
-        $name_gen = hexdec(uniqid()) . '.' . $img->getClientOriginalExtension();
+        if ($request->file('image')) {
+            $img = $request->file('image');
 
-        Image::make($img)->resize(323, 240)->save("image/services/" . $name_gen);
+            $name_gen = hexdec(uniqid()) . '.' . $img->getClientOriginalExtension();
 
-        $save_img_url = "image/services/" . $name_gen;
+            Image::make($img)->resize(323, 240)->save("image/services/" . $name_gen);
 
-        Services::insert([
-            'title' => $request->title,
-            'short_description' => $request->short_description,
-            'logn_description' => $request->logn_description,
-            'image' => $save_img_url,
-            'created_at' => Carbon::now(),
+            $save_img_url = "image/services/" . $name_gen;
 
-        ]);
-        $notification = array('message' => 'New Serveces Added Successfully', 'alert-type' => 'success');
-        return redirect()->route('services.index')->with($notification);
+            Services::insert([
+                'title' => $request->title,
+                'short_description' => $request->short_description,
+                'logn_description' => $request->logn_description,
+                'image' => $save_img_url,
+                'created_at' => Carbon::now(),
+
+            ]);
+            $notification = array('message' => 'New Serveces Added With Image Successfully', 'alert-type' => 'success');
+            return redirect()->route('services.index')->with($notification);
+        } else {
+
+            Services::insert([
+                'title' => $request->title,
+                'short_description' => $request->short_description,
+                'logn_description' => $request->logn_description,
+                'created_at' => Carbon::now(),
+
+            ]);
+            $notification = array('message' => 'New Serveces Added WithOut Image Successfully', 'alert-type' => 'success');
+            return redirect()->route('services.index')->with($notification);
+        }
     }
 
     public function destroy($id)
