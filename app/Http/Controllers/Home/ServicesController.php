@@ -63,6 +63,13 @@ class ServicesController extends Controller
         }
     }
 
+    public function view($id)
+    {
+
+        $view = Services::findOrFail($id);
+        return view('admin.services_section.view', compact('view'));
+    }
+
     public function destroy($id)
     {
         $Services = Services::findOrFail($id);
