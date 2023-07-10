@@ -37,34 +37,49 @@ class PortfolioController extends Controller
             'portfolio_name' => 'required',
             'portfolio_title' => 'required',
             'portfolio_description' => 'required',
-            'portfolio_image' => 'required',
         ], [
             'portfolio_name' => 'Portfolio Name is Required',
             'portfolio_title' => 'Portfolio Title is Required',
         ]);
 
-        $file = $request->file('portfolio_image');
+        if ($request->file('portfolio_image')) {
 
-        // $filename = date('YmdHi') . $file->getClientOriginalName();
-        $name_gen = hexdec(uniqid()) . '.' . $file->getClientOriginalExtension();
+            $file = $request->file('portfolio_image');
 
-        Image::make($file)->resize(1020, 519)->save('image/portfolio/' . $name_gen);
+            // $filename = date('YmdHi') . $file->getClientOriginalName();
+            $name_gen = hexdec(uniqid()) . '.' . $file->getClientOriginalExtension();
 
-        $save_url = 'image/portfolio/' . $name_gen;
+            Image::make($file)->resize(1020, 519)->save('image/portfolio/' . $name_gen);
 
-        Portfolio::insert([
-            'portfolio_name' => $request->portfolio_name,
-            'portfolio_title' => $request->portfolio_title,
-            'portfolio_description' => $request->portfolio_description,
-            'portfolio_image' =>  $save_url,
-            'created_at' => Carbon::now(),
+            $save_url = 'image/portfolio/' . $name_gen;
 
-        ]);
-        $notification = array(
-            'message' => 'New Portfolio Added Successfully',
-            'alert-type' => 'success'
-        );
-        return redirect()->route('portfolio.index')->with($notification);
+            Portfolio::insert([
+                'portfolio_name' => $request->portfolio_name,
+                'portfolio_title' => $request->portfolio_title,
+                'portfolio_description' => $request->portfolio_description,
+                'portfolio_image' =>  $save_url,
+                'created_at' => Carbon::now(),
+
+            ]);
+            $notification = array(
+                'message' => 'New Portfolio Added Successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->route('portfolio.index')->with($notification);
+        } else {
+            Portfolio::insert([
+                'portfolio_name' => $request->portfolio_name,
+                'portfolio_title' => $request->portfolio_title,
+                'portfolio_description' => $request->portfolio_description,
+                'created_at' => Carbon::now(),
+
+            ]);
+            $notification = array(
+                'message' => 'New Portfolio Added Successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->route('portfolio.index')->with($notification);
+        }
     }
     // __End Method__ //
 
@@ -134,15 +149,22 @@ class PortfolioController extends Controller
     {
         $portfolio = Portfolio::findOrFail($id);
         $img = $portfolio->portfolio_image; // Multi_image come to the database Fild name.
+        if ($img == Null) {
 
-        unlink($img);
-        Portfolio::findOrFail($id)->delete();
+            Portfolio::findOrFail($id)->delete();
 
-        $notification = array(
-            'message' => 'Portfolio Delete Successfully',
-            'alert-type' => 'success'
-        );
-        return redirect()->back()->with($notification);
+            $notification = array('message' => 'Portfolio Delete Successfully', 'alert-type' => 'success');
+            return redirect()->back()->with($notification);
+        } else {
+            unlink($img);
+            Portfolio::findOrFail($id)->delete();
+
+            $notification = array(
+                'message' => 'Portfolio Delete Successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->back()->with($notification);
+        }
     }
     // __End Method__ //
 

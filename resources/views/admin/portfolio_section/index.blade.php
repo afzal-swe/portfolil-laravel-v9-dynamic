@@ -31,7 +31,7 @@
                                         <th>Portfolio Image</th>
                                         <th>Portfolio Name</th>
                                         <th>Portfolio Title</th>
-                                        <th>Portfolio Description</th>
+                                       
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -44,7 +44,7 @@
                                         <td><img src="{{ asset($row->portfolio_image) }}" style="width: 40px; height:40px"></td>
                                         <td>{{ $row->portfolio_name }}</td>
                                         <td>{{ $row->portfolio_title }}</td>
-                                        <td>{{ $row->portfolio_description }}</td>
+                                        
                                         <td>
                                             <a href="{{ route('portfolio.view',$row->id) }}" class="btn btn-success sm" title="View Data"><i class="ri-eye-off-fill"></i></a>
                                             <a href="{{ route('portfolio.edit',$row->id) }}" class="btn btn-info sm" title="Edit Data"><i class="fas fa-edit"></i></a>
